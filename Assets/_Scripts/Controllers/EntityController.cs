@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public enum Faction
@@ -14,6 +15,8 @@ public class EntityController : MonoBehaviour
     [Header("Entity Properties")]
     private int _currentLife = 0; public int CurrentLife => _currentLife;
 
+    private Slider _lifeBar;
+
     [SerializeField]
     private EntityData _datas; public EntityData Datas => _datas;
 
@@ -26,6 +29,10 @@ public class EntityController : MonoBehaviour
     {
         _currentLife = _datas.Life;
         actionControllers = GetComponents<ActionController>();
+
+        _lifeBar = GetComponentInChildren<Slider>();
+        if(_lifeBar != null ) { _lifeBar.maxValue = _currentLife; _lifeBar.value = _currentLife; }
+        
     }
 
     public virtual void Update()
@@ -43,10 +50,22 @@ public class EntityController : MonoBehaviour
     {
         _currentLife -= damage;
 
+        if (_lifeBar != null)
+            _lifeBar.value = _currentLife;
+
         if (_currentLife <= 0)
         {
             //Destroy(gameObject);
             EntityManager.Instance.DestroyEntity(gameObject);
+        }
+    }
+
+    public void Heal(int heal)
+    {
+        _currentLife += heal;
+        if(_currentLife > _datas.Life)
+        {
+            _currentLife = _datas.Life;
         }
     }
 

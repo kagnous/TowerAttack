@@ -37,7 +37,7 @@ public class EntityManager : Singleton<EntityManager>
 
         List<GameObject> AIarmy = new List<GameObject>();
 
-        for (int i = 0; i < playerProfile.units.Length; i++)
+        for (int i = 0; i < playerProfile.units.Count; i++)
         {
             GameObject unitToBuild;
 
@@ -66,6 +66,11 @@ public class EntityManager : Singleton<EntityManager>
             }
         }
 
+        if(AIarmy.Count <= 0) 
+        {
+            AIarmy.Add(unitsCac);
+        }
+
         // Une seconde de delai car baseProfil
         StartCoroutine(WaveAttack(AIarmy, 1f));
     }
@@ -83,7 +88,14 @@ public class EntityManager : Singleton<EntityManager>
 
     public PlayerProfile IdentifyPlayerProfile()
     {
-        EntityMovableController[] units = FindObjectsOfType<EntityMovableController>();
+        EntityMovableController[] allUnits = FindObjectsOfType<EntityMovableController>();
+
+        List<EntityMovableController> units = new List<EntityMovableController>();
+        for (int i = 0; i < allUnits.Length; i++)
+        {
+            if (allUnits[i].Faction == Faction.Player)
+                units.Add(allUnits[i]);
+        }
         return new PlayerProfile(PlayerType.baseProfile, units);
     }
 }
@@ -91,9 +103,9 @@ public class EntityManager : Singleton<EntityManager>
 public struct PlayerProfile
 {
     public PlayerType playerType;
-    public EntityMovableController[] units;
+    public List<EntityMovableController> units;
 
-    public PlayerProfile(PlayerType playerType, EntityMovableController[] units)
+    public PlayerProfile(PlayerType playerType, List<EntityMovableController> units)
     {
         this.playerType = playerType;
         this.units = units;

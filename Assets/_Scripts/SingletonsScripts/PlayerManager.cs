@@ -41,12 +41,25 @@ public class PlayerManager : Singleton<PlayerManager>
                         ruins.BuildTower();
                     }
                 }
+                return;
             }
             else if (_entitieSelected.TryGetComponent(out Casern casern))
             {
                 if(RessourcesManager.Instance.TryBuy(casern.cost))
                 {
                     casern.BuyUnit();
+                }
+                return;
+            }
+            else if(_entitieSelected.TryGetComponent(out EntityController entity))
+            {
+                
+                if (entity.Datas.Type == EntityType.Tower)
+                {
+                    if (RessourcesManager.Instance.TryBuy(40))
+                    {
+                        entity.Heal(entity.Datas.Life);
+                    }
                 }
             }
         }
