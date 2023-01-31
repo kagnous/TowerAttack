@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
   m_Name: CacMinionTest
   m_EditorClassIdentifier: 
-  _life: 10
+  _life: 40
   _actions:
   - {fileID: 11400000, guid: f3a84b3041c26d14e833a5dc5ed991f0, type: 2}
   level: 1
