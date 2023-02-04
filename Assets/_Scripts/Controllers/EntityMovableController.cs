@@ -49,6 +49,9 @@ public class EntityMovableController : EntityController
         // Recuperation d'une destination
         _currentTargetToMove = GetCurrentTarget();
 
+            //Debug.Log(_navMeshAgent.path.status);
+
+
         // Update de la destination
         if (_currentTargetToMove != null)
         {
@@ -59,7 +62,13 @@ public class EntityMovableController : EntityController
         else
         {
             _navMeshAgent.stoppingDistance = 1f;
+            
             _navMeshAgent.SetDestination(globalTarget.transform.position);
+            
+            if(_navMeshAgent.remainingDistance < 1)
+            {
+                Heal(Datas.Life);
+            }
         }
 
         base.Update();
@@ -85,12 +94,34 @@ public class EntityMovableController : EntityController
 
     private GameObject GetCurrentTarget()
     {
+        //Pour chaque attaque (on en a qu'une pour l'instant)
         foreach (AttackActionController attackActionController in _attackActionControllers)
         {
+            // On tente de détecter une nouvelle cible
             GameObject newTarget = attackActionController.DetectNewTarget();
             if (newTarget)
             {
-                return newTarget;
+                // On crée un chemin avec la cible
+                NavMeshPath path= new NavMeshPath();
+                _navMeshAgent.CalculatePath(newTarget.transform.position, path);
+
+                // Si ce chemin n'est pas complet
+                if(path.status != NavMeshPathStatus.PathComplete)
+                {
+                    // On récupère le type de la target
+                    EntityType type = newTarget.GetComponent<EntityController>().Datas.Type;
+
+                    // Si c'est une tour ou une barricade, alors c'est bon et on peut garder
+                    if (type == EntityType.Tower | type == EntityType.Barricade)
+                    {
+                        return newTarget;
+                    }
+                }
+                //Et si le chemin est complet alors c'est bon
+                else
+                {
+                    return newTarget;
+                }
             }
         }
 

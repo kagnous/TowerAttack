@@ -833,6 +833,7 @@ GameObject:
   - component: {fileID: 7869745266007446036}
   - component: {fileID: 7869745266007446037}
   - component: {fileID: 7869745266007446043}
+  - component: {fileID: -1013846846820540454}
   m_Layer: 0
   m_Name: MinonRange
   m_TagString: Untagged
@@ -959,6 +960,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _datas: {fileID: 11400000, guid: cb73ab9461888de44b30fe74a39c1319, type: 2}
   _faction: 0
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
   globalTarget: {fileID: 0}
   _currentTargetToMove: {fileID: 0}
 --- !u!114 &7869745266007446043
@@ -976,6 +980,18 @@ MonoBehaviour:
   prefabAttack: {fileID: 1502496307131561895, guid: d6cf674f65bc2ab4eb8f0a5daed1ad40,
     type: 3}
   originAttack: {fileID: 7869745266007446038}
+--- !u!114 &-1013846846820540454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869745266007446035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4387e1d7dfc444d8389a50af5b5e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8013042288942531679
 GameObject:
   m_ObjectHideFlags: 0

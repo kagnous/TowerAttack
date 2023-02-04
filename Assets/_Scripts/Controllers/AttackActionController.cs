@@ -16,14 +16,17 @@ public class AttackActionController : ActionController
     /// </summary>
     private EntityController _currentTarget;
 
+    private Dictionary<EntityType, int> _priorities;
+
     public GameObject prefabAttack;
     public Transform originAttack;
 
     public override void Awake()
     {
         _currentEntity = GetComponent<EntityController>();
-
         _attackActionData = (AttackActionData)_currentEntity.Datas.Actions[0];
+
+        _priorities = GetComponent<PriorityController>().Priorities;
 
         if (originAttack == null)
         {
@@ -69,6 +72,16 @@ public class AttackActionController : ActionController
         }
     }
 
+    public GameObject DetectNewTarget()
+    {
+        EntityController detected = DetectAroundEntity(_attackActionData.RangeDetect);
+        if (detected)
+        {
+            return detected.gameObject;
+        }
+        return null;
+    }
+
     private EntityController DetectAroundEntity(float rangeDetect)
     {
         RaycastHit[] hits = Physics.CapsuleCastAll(originAttack.position, originAttack.position, rangeDetect, Vector3.up, 0);//, _maskLayer    <- ajouer à la fin pour test les types de cibles selon le layer
@@ -104,12 +117,20 @@ public class AttackActionController : ActionController
                 continue;
             }
 
+            /*
             // Test si elle est plus proche qu'une potentielle autre cible
             if (Vector3.Distance(originAttack.position, toTestNewTarget.transform.position) 
                     < Vector3.Distance(originAttack.position, newTarget.transform.position))
             {
                 newTarget = toTestNewTarget;
                 continue;
+            }
+            */
+            // Si elle est plus prioritaire que la précédente
+            EntityType targetType = toTestNewTarget.Datas.Type;
+            if (_priorities[targetType] > _priorities[newTarget.Datas.Type])
+            {
+                newTarget = toTestNewTarget;
             }
         }
 
@@ -151,15 +172,5 @@ public class AttackActionController : ActionController
         }
 
         ResetAction();
-    }
-
-    public GameObject DetectNewTarget()
-    {
-        EntityController detected = DetectAroundEntity(_attackActionData.RangeDetect);
-        if (detected)
-        {
-            return detected.gameObject;
-        }
-        return null;
     }
 }

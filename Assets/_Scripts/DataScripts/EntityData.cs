@@ -7,7 +7,9 @@ public enum EntityType
     Default,
     Cac,
     Range,
-    Tower
+    GlassCanon,
+    Tower,
+    Barricade
 }
 
 [CreateAssetMenu(fileName = "New Default Entity", menuName = "TowerAttack/Entity/New Entity")]
@@ -29,11 +31,11 @@ public class EntityData : ScriptableObject
     private EntityType _type = EntityType.Default;
     public EntityType Type { get { return _type; } }
 
-    [SerializeField, Range(1, 15)]
-    private int numberPop = 1;
-    public int NumberPop { get { return numberPop; } }
-
     [SerializeField, Min(0), Tooltip("Nombre de scraps rapporté")]
     private int scrapsValue = 5;
     public int ScrapsValue { get { return scrapsValue; } }
+
+    [SerializeField, Min(0), Tooltip("Consommation d'énergie par tick\nUnités player uniquement")]
+    private int energieCost = 0;
+    public int EnergyCost { get { return energieCost; } }
 }

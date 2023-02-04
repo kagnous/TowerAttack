@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4978711181820656946}
   - component: {fileID: 4978711181820656947}
   - component: {fileID: 4978711181820656957}
+  - component: {fileID: -1594367859517385754}
   m_Layer: 0
   m_Name: AICAC
   m_TagString: Untagged
@@ -177,6 +178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _datas: {fileID: 11400000, guid: 9cffe7cb9ebeb9e4ba535ce335be05d2, type: 2}
   _faction: 2
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
   globalTarget: {fileID: 0}
   _currentTargetToMove: {fileID: 0}
 --- !u!114 &4978711181820656957
@@ -193,6 +197,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabAttack: {fileID: 0}
   originAttack: {fileID: 4978711181820656944}
+--- !u!114 &-1594367859517385754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978711181820656949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4387e1d7dfc444d8389a50af5b5e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5001130828213958675
 GameObject:
   m_ObjectHideFlags: 0

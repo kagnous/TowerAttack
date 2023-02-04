@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d98e1bc9404e2f48b73979792430439, type: 3}
-  m_Name: TowerTest
+  m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
+  m_Name: GlassCanonMinion
   m_EditorClassIdentifier: 
-  _life: 200
+  _life: 10
   _actions:
-  - {fileID: 11400000, guid: 0593701ecf28b1742addca6797db34d9, type: 2}
+  - {fileID: 11400000, guid: 748305ac6c614e5488c91bc838ed36b3, type: 2}
   level: 1
   _type: 3
   scrapsValue: 5
-  energieCost: 5
+  energieCost: 3
+  _speed: 1.5

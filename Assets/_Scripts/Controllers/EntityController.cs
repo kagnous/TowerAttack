@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Faction
 {
@@ -24,6 +25,8 @@ public class EntityController : MonoBehaviour
     private Faction _faction;   public Faction Faction { get { return _faction; } set { _faction = value; } }
 
     protected ActionController[] actionControllers;
+
+    public UnityEvent destroyEvent;
 
     public virtual void Awake()
     {
@@ -55,7 +58,7 @@ public class EntityController : MonoBehaviour
 
         if (_currentLife <= 0)
         {
-            //Destroy(gameObject);
+            destroyEvent?.Invoke();
             EntityManager.Instance.DestroyEntity(gameObject);
         }
     }
@@ -67,6 +70,9 @@ public class EntityController : MonoBehaviour
         {
             _currentLife = _datas.Life;
         }
+
+        if (_lifeBar != null)
+            _lifeBar.value = _currentLife;
     }
 
     public bool IsValidEntity()
