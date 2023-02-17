@@ -101,6 +101,7 @@ public class EntityManager : Singleton<EntityManager>
             }
         }
 
+            //Debug.Log("Destroy " + toDestroy.name);
         Destroy(toDestroy);
         Instantiate(destroyEffect, toDestroy.transform.position, toDestroy.transform.rotation);
     }
@@ -123,11 +124,11 @@ public class EntityManager : Singleton<EntityManager>
         //Appelle la fonction de réduction d'énergie, qui retourne vrai si l'énergie est à 0 après réduction
         if(RessourcesManager.Instance.RemoveEnergie(RessourcesManager.Instance._energyConsumed))
         {
-            Debug.Log("Manque d'energie");
+                //Debug.Log("Manque d'energie");
         }
 
         // TMP A ENLEVER !!!!!!!!!!!!!!!
-        RessourcesManager.Instance.CalculEnergyCost();
+        //RessourcesManager.Instance.CalculEnergyCost();
     }
 }
 

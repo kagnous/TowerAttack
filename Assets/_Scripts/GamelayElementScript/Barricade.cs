@@ -24,7 +24,7 @@ public class Barricade : MonoBehaviour
     public void BuildBarricade()
     {
         _barricade = Instantiate(barricadePrefab, transform.position, Quaternion.identity);
-        _barricade.GetComponent<EntityController>().destroyEvent.AddListener(CanBuild);
+        _barricade.GetComponent<EntityController>().destroyEvent.AddListener(DestroyBarricade);
         CanBuild();
     }
 
@@ -40,5 +40,12 @@ public class Barricade : MonoBehaviour
             _canBuild = false;
             GetComponent<MeshRenderer>().enabled = false;
         }
+    }
+
+    // Intermédiaire nécessaire, car le script capte pas de suite que la barricade n'existe plus une fois détruite
+    private void DestroyBarricade()
+    {
+        _barricade = null;
+        CanBuild();
     }
 }

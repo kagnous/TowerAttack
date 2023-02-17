@@ -16,6 +16,6 @@ MonoBehaviour:
   _actions:
   - {fileID: 11400000, guid: 0593701ecf28b1742addca6797db34d9, type: 2}
   level: 1
-  _type: 3
+  _type: 4
   scrapsValue: 5
   energieCost: 5

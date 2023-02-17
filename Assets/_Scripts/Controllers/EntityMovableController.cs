@@ -76,18 +76,20 @@ public class EntityMovableController : EntityController
 
     private float GetMaxDistanceStop()
     {
+        // Le -1 sert a savoir si la valeur a été changée au moins une fois (car aucune portée RangeDo ne peut être égale à -1)
         float maxDistance = -1;
         foreach (AttackActionController attackActionController in _attackActionControllers)
         {
             if (maxDistance == -1 || maxDistance < attackActionController.AttackActionData.RangeDo)
             {
-                maxDistance = attackActionController.AttackActionData.RangeDo;
+                // Enlever 1 a la distace a atteindre, c'est pour que la portée de l'attaque soit valide malgrès la potentielle différence de hauteur avec la cible
+                maxDistance = attackActionController.AttackActionData.RangeDo - 1;
             }
         }
 
-        if (maxDistance == -1)
+        if (maxDistance <= 0)
         {
-            maxDistance = 1;
+            maxDistance = 0.1f;
         }
         return maxDistance;
     }

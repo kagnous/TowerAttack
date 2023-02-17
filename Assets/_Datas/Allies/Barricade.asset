@@ -15,5 +15,6 @@ MonoBehaviour:
   _life: 20
   _actions: []
   level: 1
-  _type: 4
+  _type: 5
   scrapsValue: 0
+  energieCost: 0

@@ -16,7 +16,7 @@ public class TowerRuins : MonoBehaviour
         if (towerPrefab && tower == null)
         {
             tower = Instantiate(towerPrefab, new Vector3(transform.position.x, transform.position.y +1.2f, transform.position.z), transform.rotation);
-            spawnTower.Invoke();
+            spawnTower?.Invoke();
         }
     }
 }

@@ -13,6 +13,7 @@ public enum TimeOfDay
 public class TimeManager : Singleton<TimeManager>
 {
     private const float _tick = 1f;
+    private const float _hackTick = 5f;
 
     [SerializeField, Tooltip("Durée du jour en s")]
     private float _dayDuration = 10;
@@ -24,8 +25,10 @@ public class TimeManager : Singleton<TimeManager>
 
     public float _timerDaytime = 0;
     public float _timerTick = 0;
+    public float _timerHack = 0;
 
     public UnityEvent tickEvent;
+    public UnityEvent hackEvent;
 
     public TimeOfDay _actualTimeOfDay;
 
@@ -38,14 +41,11 @@ public class TimeManager : Singleton<TimeManager>
     {
         _timerDaytime += Time.deltaTime;
 
-        if (_actualTimeOfDay == TimeOfDay.Day)
+        if (_actualTimeOfDay == TimeOfDay.Day && _timerDaytime >= _dayDuration)
         {
-            if (_timerDaytime >= _dayDuration)
-            {
-                _timerDaytime = 0;
-                _actualTimeOfDay = TimeOfDay.Night;
-                _daysSurvived++;
-            }
+            _timerDaytime = 0;
+            _actualTimeOfDay = TimeOfDay.Night;
+            _daysSurvived++;
         }
         else if (_actualTimeOfDay == TimeOfDay.Night && _timerDaytime >= _nightDuration)
         {
@@ -68,6 +68,13 @@ public class TimeManager : Singleton<TimeManager>
         {
             tickEvent?.Invoke();
             _timerTick = 0;
+        }
+
+        _timerHack+= Time.deltaTime;
+        if(_timerHack > _hackTick)
+        {
+            hackEvent?.Invoke();
+            _timerHack = 0;
         }
     }
 }

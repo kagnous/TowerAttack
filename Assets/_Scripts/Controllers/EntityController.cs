@@ -24,6 +24,9 @@ public class EntityController : MonoBehaviour
     [SerializeField]
     private Faction _faction;   public Faction Faction { get { return _faction; } set { _faction = value; } }
 
+    [SerializeField, Tooltip("Si l'unité peut être hackée ou non")]
+    private bool _canHacked = true; public bool CanHacked { get { return _canHacked; } set { _canHacked = value; } }
+
     protected ActionController[] actionControllers;
 
     public UnityEvent destroyEvent;
@@ -58,8 +61,8 @@ public class EntityController : MonoBehaviour
 
         if (_currentLife <= 0)
         {
-            destroyEvent?.Invoke();
             EntityManager.Instance.DestroyEntity(gameObject);
+            destroyEvent?.Invoke();
         }
     }
 
