@@ -11,12 +11,13 @@ public enum Faction
     Neutral
 }
 
-public class EntityController : MonoBehaviour
+public class EntityController : Entity
 {
     [Header("Entity Properties")]
-    private int _currentLife = 0; public int CurrentLife => _currentLife;
+    private float _currentLife = 0; public float CurrentLife => _currentLife;
 
-    private Slider _lifeBar;
+    [SerializeField, Min(1)]
+    private int level = 1;  public int Level { get { return level; } }
 
     [SerializeField]
     private EntityData _datas; public EntityData Datas => _datas;
@@ -29,16 +30,15 @@ public class EntityController : MonoBehaviour
 
     protected ActionController[] actionControllers;
 
+    public UnityEvent hackEvent;
+    public UnityEvent damageEvent;
+    public UnityEvent healEvent;
     public UnityEvent destroyEvent;
 
     public virtual void Awake()
     {
         _currentLife = _datas.Life;
         actionControllers = GetComponents<ActionController>();
-
-        _lifeBar = GetComponentInChildren<Slider>();
-        if(_lifeBar != null ) { _lifeBar.maxValue = _currentLife; _lifeBar.value = _currentLife; }
-        
     }
 
     public virtual void Update()
@@ -52,12 +52,11 @@ public class EntityController : MonoBehaviour
         }
     }
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         _currentLife -= damage;
 
-        if (_lifeBar != null)
-            _lifeBar.value = _currentLife;
+        damageEvent?.Invoke();
 
         if (_currentLife <= 0)
         {
@@ -74,12 +73,28 @@ public class EntityController : MonoBehaviour
             _currentLife = _datas.Life;
         }
 
-        if (_lifeBar != null)
-            _lifeBar.value = _currentLife;
+        healEvent?.Invoke();
+    }
+
+    public void Hacking()
+    {
+        if(_faction == Faction.Player)
+        {
+            _faction = Faction.IA;
+        }
+        else if (_faction == Faction.IA)
+        {
+            _faction = Faction.Player;
+        }
+
+        hackEvent?.Invoke();
     }
 
     public bool IsValidEntity()
     {
         return gameObject != null && gameObject.activeSelf && _currentLife > 0;
     }
+
+    public override void OnClick() { }
+    public override void OnAltClick() { }
 }

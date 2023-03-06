@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GlassCanonMinion
   m_EditorClassIdentifier: 
   _life: 10
-  _actions:
-  - {fileID: 11400000, guid: 748305ac6c614e5488c91bc838ed36b3, type: 2}
-  level: 1
+  _action: {fileID: 11400000, guid: 748305ac6c614e5488c91bc838ed36b3, type: 2}
+  _damageModifier: 1
   _type: 3
   scrapsValue: 5
   energieCost: 3
+  _tiers: []
   _speed: 1.5

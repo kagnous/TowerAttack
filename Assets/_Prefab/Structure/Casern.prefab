@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df546122ae91ed4989259584c1433a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   unit: {fileID: 4978711181820656949, guid: 8173219134aece54694ff3476ddd590e, type: 3}
   spawnPoint: {fileID: 2615120907958690117}
   cost: 40

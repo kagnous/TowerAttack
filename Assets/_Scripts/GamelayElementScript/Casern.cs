@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Casern : MonoBehaviour
+public class Casern : Entity
 {
     public GameObject unit;
     public Transform spawnPoint;
@@ -16,4 +16,14 @@ public class Casern : MonoBehaviour
             newUnit.GetComponent<EntityMovableController>().globalTarget = spawnPoint.gameObject;
         }
     }
+
+    public override void OnClick()
+    {
+        if (RessourcesManager.Instance.TryBuy(cost))
+        {
+            BuyUnit();
+        }
+    }
+
+    public override void OnAltClick() { }
 }

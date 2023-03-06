@@ -24,7 +24,7 @@ public class AttackActionController : ActionController
     public override void Awake()
     {
         _currentEntity = GetComponent<EntityController>();
-        _attackActionData = (AttackActionData)_currentEntity.Datas.Actions[0];
+        _attackActionData = (AttackActionData)_currentEntity.Datas.Action;
 
         if (originAttack == null)
         {
@@ -43,7 +43,7 @@ public class AttackActionController : ActionController
 
     public override ActionData GetData()
     {
-        return _currentEntity.Datas.Actions[0];
+        return _currentEntity.Datas.Action;
     }
 
     public override void UpdateAction()
@@ -176,13 +176,13 @@ public class AttackActionController : ActionController
                         // On lui donne une cible
                         projectileCompo.InitTarget(_currentTarget);
                         // On lui donne ces dégâts
-                        projectileCompo.damage = _attackActionData.Damage;
+                        projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
                     }
                 }
                 // Sinon juste il fait les dégâts (coup au càc notemment)
                 else
                 {
-                    _currentTarget.ApplyDamage(_attackActionData.Damage);
+                    _currentTarget.ApplyDamage(_attackActionData.Damage * _currentEntity.Datas.DamageModifier);
                 }
 
                 //Si l'attaque a bien eu lieu, on met le cooldawn

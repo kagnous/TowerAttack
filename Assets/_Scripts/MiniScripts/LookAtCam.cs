@@ -14,5 +14,6 @@ public class LookAtCam : MonoBehaviour
     private void Update()
     {
         transform.LookAt(cam.transform);
+        transform.Rotate(0, 180,0);
     }
 }

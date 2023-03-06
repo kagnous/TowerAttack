@@ -29,10 +29,20 @@ public class PlayerManager : Singleton<PlayerManager>
     }
 
     /// <summary>
-    /// Quand on clique
+    /// Quand on clique gauche
     /// </summary>
     public void Activate(InputAction.CallbackContext context)
     {
+        if(_entitieSelected)
+        {
+            if(_entitieSelected.TryGetComponent(out Entity entity))
+            {
+                if(entity.Interractable)
+                    entity.OnClick();
+            }
+        }
+
+        /*
         if (_entitieSelected)
         {
             if (_entitieSelected.TryGetComponent(out TowerRuins ruins))
@@ -88,6 +98,22 @@ public class PlayerManager : Singleton<PlayerManager>
                 return;
             }
             Debug.Log("Objet sélectionné non reconnu");
+        }
+        */
+    }
+
+    /// <summary>
+    /// Quand on clique droit
+    /// </summary>
+    public void AltClick(InputAction.CallbackContext context)
+    {
+        if (_entitieSelected)
+        {
+            if (_entitieSelected.TryGetComponent(out Entity entity))
+            {
+                if (entity.Interractable)
+                    entity.OnAltClick();
+            }
         }
     }
 

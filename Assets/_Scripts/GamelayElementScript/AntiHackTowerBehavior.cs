@@ -18,7 +18,6 @@ public class AntiHackTowerBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hello ?");
         if(other.TryGetComponent<EntityController>(out EntityController entity) )
         {
             if(entity.Faction == Faction.Player)

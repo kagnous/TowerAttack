@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RangeMinionTest
   m_EditorClassIdentifier: 
   _life: 20
-  _actions:
-  - {fileID: 11400000, guid: 934345a735db9ee4fb4761b7d1dc0194, type: 2}
-  level: 1
+  _action: {fileID: 11400000, guid: 934345a735db9ee4fb4761b7d1dc0194, type: 2}
+  _damageModifier: 1
   _type: 2
   scrapsValue: 5
   energieCost: 2
+  _tiers: []
   _speed: 2

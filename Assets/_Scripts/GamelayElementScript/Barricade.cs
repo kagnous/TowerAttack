@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barricade : MonoBehaviour
+public class Barricade : Entity
 {
     private GameObject _barricade;
     public GameObject barricadePrefab;
@@ -48,4 +48,17 @@ public class Barricade : MonoBehaviour
         _barricade = null;
         CanBuild();
     }
+
+    public override void OnClick()
+    {
+        if (_canBuild)
+        {
+            if (RessourcesManager.Instance.TryBuy(100))
+            {
+                BuildBarricade();
+            }
+        }
+    }
+
+    public override void OnAltClick() { }
 }

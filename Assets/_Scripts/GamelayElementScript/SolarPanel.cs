@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarPanel : MonoBehaviour
+public class SolarPanel : Entity
 {
     public bool _isActivated = false;
 
@@ -35,4 +35,12 @@ public class SolarPanel : MonoBehaviour
             }
         }
     }
+
+    public override void OnClick()
+    {
+        if (RessourcesManager.Instance.TryBuy(50))
+            BuildSolarPanel();
+    }
+
+    public override void OnAltClick() { }
 }

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: BossAI
   m_EditorClassIdentifier: 
   _life: 25
-  _actions:
-  - {fileID: 11400000, guid: d79aafdf00cd2914dbdf387d6fdc7f4a, type: 2}
-  level: 5
+  _action: {fileID: 11400000, guid: d79aafdf00cd2914dbdf387d6fdc7f4a, type: 2}
+  _damageModifier: 1
   _type: 1
   scrapsValue: 5
+  energieCost: 0
+  _tiers: []
   _speed: 3.5

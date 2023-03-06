@@ -35,6 +35,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Upgrade"",
+                    ""type"": ""Button"",
+                    ""id"": ""1264ef26-1055-425a-b11b-6efc4e5b2eac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Activate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1fae36ed-f0a6-4aeb-8305-b3c9b42294ad"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Upgrade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Activate = m_Player.FindAction("Activate", throwIfNotFound: true);
+        m_Player_Upgrade = m_Player.FindAction("Upgrade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,11 +138,13 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Activate;
+    private readonly InputAction m_Player_Upgrade;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
         public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Activate => m_Wrapper.m_Player_Activate;
+        public InputAction @Upgrade => m_Wrapper.m_Player_Upgrade;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -134,6 +157,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Activate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
                 @Activate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
                 @Activate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnActivate;
+                @Upgrade.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpgrade;
+                @Upgrade.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpgrade;
+                @Upgrade.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpgrade;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -141,6 +167,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Activate.started += instance.OnActivate;
                 @Activate.performed += instance.OnActivate;
                 @Activate.canceled += instance.OnActivate;
+                @Upgrade.started += instance.OnUpgrade;
+                @Upgrade.performed += instance.OnUpgrade;
+                @Upgrade.canceled += instance.OnUpgrade;
             }
         }
     }
@@ -148,5 +177,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnActivate(InputAction.CallbackContext context);
+        void OnUpgrade(InputAction.CallbackContext context);
     }
 }

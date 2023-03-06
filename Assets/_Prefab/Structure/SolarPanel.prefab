@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4acb72846962a4149ab3e4e2acab28d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   _isActivated: 0
   day: {fileID: 2100000, guid: ad4c306f40d98424eb7a8a0840d2e524, type: 2}
   night: {fileID: 2100000, guid: 58cb0effeb212664b82a8db2b535951c, type: 2}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public enum TimeOfDay
 {
@@ -12,6 +13,9 @@ public enum TimeOfDay
 
 public class TimeManager : Singleton<TimeManager>
 {
+    private Light sun;
+    public GameObject sunlight;
+
     private const float _tick = 1f;
     private const float _hackTick = 5f;
 
@@ -34,21 +38,28 @@ public class TimeManager : Singleton<TimeManager>
 
     private void Start()
     {
+        sun = sunlight.GetComponent<Light>();
+
         _actualTimeOfDay = TimeOfDay.Night;
+        sun.color = Color.grey;
     }
 
     private void Update()
     {
+        // JOURNEE
         _timerDaytime += Time.deltaTime;
-
         if (_actualTimeOfDay == TimeOfDay.Day && _timerDaytime >= _dayDuration)
         {
+            sun.color = Color.grey;
+
             _timerDaytime = 0;
             _actualTimeOfDay = TimeOfDay.Night;
             _daysSurvived++;
         }
         else if (_actualTimeOfDay == TimeOfDay.Night && _timerDaytime >= _nightDuration)
         {
+            sun.color = Color.white;
+
             _timerDaytime = 0;
             if (_daysSurvived > 3)
             {
@@ -61,8 +72,9 @@ public class TimeManager : Singleton<TimeManager>
 
             _actualTimeOfDay = TimeOfDay.Day;
         }
-        //Debug.Log(_actualTimeOfDay);
+            //Debug.Log(_actualTimeOfDay);
 
+        // TIMERS
         _timerTick += Time.deltaTime;
         if (_timerTick > _tick)
         {

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592469985ddc7944eb0dc330a8f66e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   towerPrefab: {fileID: 9038866016202981187, guid: 36ee8293fd61f04498af528a74eb4b56,
     type: 3}
   spawnTower:

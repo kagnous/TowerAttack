@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _life: 20
   _actions: []
-  level: 1
   _type: 5
   scrapsValue: 0
   energieCost: 0
+  _tiers: []

@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8854e048b4690564ba68f61e40c7c9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   barricadePrefab: {fileID: 1776808573164580852, guid: b89efee77c4d54b4ba447d802ee60e0f,
     type: 3}
   towerRef: {fileID: 0}

@@ -17,7 +17,6 @@ public class HackingManager : MonoBehaviour
 
     public void TryHackAll()
     {
-        Debug.Log("Coucou");
         EntityController[] entities = FindObjectsOfType<EntityController>();
         foreach (EntityController entity in entities)
         {
@@ -32,19 +31,7 @@ public class HackingManager : MonoBehaviour
     {
         if (Random.Range(0, _hackingChance) == 0)
         {
-            entity.Faction = Faction.IA;
-
-            // Coloriage
-            MeshRenderer mainMesh = entity.GetComponent<MeshRenderer>();
-
-            if (mainMesh)
-                entity.GetComponent<MeshRenderer>().material.color = Color.red;
-
-            MeshRenderer[] meshes = entity.GetComponentsInChildren<MeshRenderer>();
-            foreach (MeshRenderer mesh in meshes)
-            {
-                mesh.material.color = Color.red;
-            }
+            entity.Hacking();
 
             // Particule
             if (hackingEffect)
