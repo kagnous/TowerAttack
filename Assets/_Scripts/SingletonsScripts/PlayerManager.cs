@@ -28,26 +28,91 @@ public class PlayerManager : Singleton<PlayerManager>
         UpdateInputPlayer();
     }
 
+    /// <summary>
+    /// Quand on clique gauche
+    /// </summary>
     public void Activate(InputAction.CallbackContext context)
     {
         if(_entitieSelected)
         {
+            if(_entitieSelected.TryGetComponent(out Entity entity))
+            {
+                if(entity.Interractable)
+                    entity.OnClick();
+            }
+        }
+
+        /*
+        if (_entitieSelected)
+        {
             if (_entitieSelected.TryGetComponent(out TowerRuins ruins))
             {
-                if(ruins.Tower == null)
+                if (ruins.Tower == null)
                 {
                     if (RessourcesManager.Instance.TryBuy(100))
                     {
                         ruins.BuildTower();
                     }
                 }
+                return;
             }
             else if (_entitieSelected.TryGetComponent(out Casern casern))
             {
-                if(RessourcesManager.Instance.TryBuy(casern.cost))
+                if (RessourcesManager.Instance.TryBuy(casern.cost))
                 {
                     casern.BuyUnit();
                 }
+                return;
+            }
+            else if (_entitieSelected.TryGetComponent(out Barricade barricade))
+            {
+                if (barricade._canBuild)
+                {
+                    if (RessourcesManager.Instance.TryBuy(100))
+                    {
+                        barricade.BuildBarricade();
+                    }
+                }
+                return;
+            }
+            else if(_entitieSelected.TryGetComponent(out SolarPanel solarPanel))
+            {
+                if(!solarPanel._isActivated)
+                {
+                    if(RessourcesManager.Instance.TryBuy(50))
+                    {
+                        solarPanel.BuildSolarPanel();
+                    }   
+                }
+                return;
+            }
+            else if (_entitieSelected.TryGetComponent(out EntityController entity))
+            {
+                if (entity.Datas.Type == EntityType.Tower)
+                {
+                    if (RessourcesManager.Instance.TryBuy(40))
+                    {
+                        entity.Heal(entity.Datas.Life);
+                    }
+                }
+                return;
+            }
+            Debug.Log("Objet sélectionné non reconnu");
+        }
+        */
+    }
+
+    /// <summary>
+    /// Quand on clique droit
+    /// </summary>
+    public void AltClick(InputAction.CallbackContext context)
+    {
+        if (_entitieSelected)
+        {
+            if (_entitieSelected.TryGetComponent(out Entity entity))
+            {
+                if (entity.Interractable)
+                    entity.OnAltClick();
             }
         }
     }
