@@ -16,14 +16,15 @@ public class AttackActionController : ActionController
     /// </summary>
     private EntityController _currentTarget;
 
+    private Dictionary<EntityType, int> _priorities;
+
     public GameObject prefabAttack;
     public Transform originAttack;
 
     public override void Awake()
     {
         _currentEntity = GetComponent<EntityController>();
-
-        _attackActionData = (AttackActionData)_currentEntity.Datas.Actions[0];
+        _attackActionData = (AttackActionData)_currentEntity.Datas.Action;
 
         if (originAttack == null)
         {
@@ -35,9 +36,14 @@ public class AttackActionController : ActionController
         base.Awake();
     }
 
+    private void Start()
+    {
+        _priorities = GetComponent<PriorityController>().Priorities;
+    }
+
     public override ActionData GetData()
     {
-        return _currentEntity.Datas.Actions[0];
+        return _currentEntity.Datas.Action;
     }
 
     public override void UpdateAction()
@@ -54,7 +60,7 @@ public class AttackActionController : ActionController
         // Si pas de target on cherche une nouvelle target
         if (_currentTarget == null)
         {
-            _currentTarget = DetectAroundEntity(_attackActionData.RangeDo);
+            _currentTarget = DetectAroundEntity(_attackActionData.RangeDetect);
         }
 
         // Si on a une target on update l'action
@@ -67,6 +73,22 @@ public class AttackActionController : ActionController
         {
             ResetAction();
         }
+
+            //if(_currentEntity.Faction == Faction.IA)
+            //Debug.Log(_currentTarget);
+    }
+
+    /// <summary>
+    /// Intermédiaire de DetectAroundEntity pour le MovableController
+    /// </summary>
+    public GameObject DetectNewTarget()
+    {
+        EntityController detected = DetectAroundEntity(_attackActionData.RangeDetect);
+        if (detected)
+        {
+            return detected.gameObject;
+        }
+        return null;
     }
 
     private EntityController DetectAroundEntity(float rangeDetect)
@@ -104,6 +126,7 @@ public class AttackActionController : ActionController
                 continue;
             }
 
+            
             // Test si elle est plus proche qu'une potentielle autre cible
             if (Vector3.Distance(originAttack.position, toTestNewTarget.transform.position) 
                     < Vector3.Distance(originAttack.position, newTarget.transform.position))
@@ -111,6 +134,16 @@ public class AttackActionController : ActionController
                 newTarget = toTestNewTarget;
                 continue;
             }
+            
+            /*
+            // Si elle est plus prioritaire que la précédente
+            EntityType targetType = toTestNewTarget.Datas.Type;
+            if (_priorities[targetType] > _priorities[newTarget.Datas.Type])
+            {
+                    //Debug.Log($"{_priorities[targetType]} plus priotaire que {_priorities[newTarget.Datas.Type]}");
+                newTarget = toTestNewTarget;
+            }
+            */
         }
 
         return newTarget;
@@ -121,45 +154,45 @@ public class AttackActionController : ActionController
         // Si il a bien une cible (normalement c'est obligé pour arriver ici)
         if (_currentTarget != null)
         {
-            transform.LookAt(_currentTarget.transform);
-            // Si il y a une munition
-            if (prefabAttack != null)
+            // Si elle est a portée
+            if(Vector3.Distance(transform.position, _currentTarget.transform.position) <= _attackActionData.RangeDo)
             {
-                // On l'instancie
-                GameObject newProjectile = Instantiate(prefabAttack);
-
-                // On la positionne
-                newProjectile.transform.position = originAttack.position;
-
-                // On récupère le component Projectile
-                Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
-
-                // Si il existe
-                if (projectileCompo)
+                transform.LookAt(_currentTarget.transform);
+                // Si il y a une munition
+                if (prefabAttack != null)
                 {
-                    // On lui donne une cible
-                    projectileCompo.InitTarget(_currentTarget);
-                    // On lui donne ces dégâts
-                    projectileCompo.damage = _attackActionData.Damage;
+                    // On l'instancie
+                    GameObject newProjectile = Instantiate(prefabAttack);
+
+                    // On la positionne
+                    newProjectile.transform.position = originAttack.position;
+
+                    // On récupère le component Projectile
+                    Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
+
+                    // Si il existe
+                    if (projectileCompo)
+                    {
+                        // On lui donne une cible
+                        projectileCompo.InitTarget(_currentTarget);
+                        // On lui donne ces dégâts
+                        projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
+                    }
                 }
+                // Sinon juste il fait les dégâts (coup au càc notemment)
+                else
+                {
+                    _currentTarget.ApplyDamage(_attackActionData.Damage * _currentEntity.Datas.DamageModifier);
+                }
+
+                //Si l'attaque a bien eu lieu, on met le cooldawn
+                ResetAction();
             }
-            // Sinon juste il fait les dégâts (coup au càc notemment)
+            // Si elle est pas a portée
             else
             {
-                _currentTarget.ApplyDamage(_attackActionData.Damage);
+                    //Debug.Log(gameObject.name + " a une cible detectée mais pas a portée");
             }
         }
-
-        ResetAction();
-    }
-
-    public GameObject DetectNewTarget()
-    {
-        EntityController detected = DetectAroundEntity(_attackActionData.RangeDetect);
-        if (detected)
-        {
-            return detected.gameObject;
-        }
-        return null;
     }
 }

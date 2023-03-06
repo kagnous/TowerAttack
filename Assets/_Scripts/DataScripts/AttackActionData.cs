@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttackActionData : ActionData
 {
     [SerializeField, Tooltip("Dégâts infligés")]
-    private int _damage = 0;    public int Damage { get { return _damage; } }
+    private float _damage = 0;    public float Damage { get { return _damage; } }
 
     [SerializeField, Min(0), Tooltip("Portée à laquelle l'attaque à lieu")]
     private float _rangeDo = 0; public float RangeDo { get { return _rangeDo; } }

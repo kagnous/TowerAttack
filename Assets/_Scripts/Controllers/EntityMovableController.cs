@@ -49,6 +49,9 @@ public class EntityMovableController : EntityController
         // Recuperation d'une destination
         _currentTargetToMove = GetCurrentTarget();
 
+            //Debug.Log(_navMeshAgent.path.status);
+
+
         // Update de la destination
         if (_currentTargetToMove != null)
         {
@@ -59,7 +62,13 @@ public class EntityMovableController : EntityController
         else
         {
             _navMeshAgent.stoppingDistance = 1f;
+            
             _navMeshAgent.SetDestination(globalTarget.transform.position);
+            
+            if(_navMeshAgent.remainingDistance < 1)
+            {
+                Heal(Datas.Life);
+            }
         }
 
         base.Update();
@@ -67,30 +76,54 @@ public class EntityMovableController : EntityController
 
     private float GetMaxDistanceStop()
     {
+        // Le -1 sert a savoir si la valeur a été changée au moins une fois (car aucune portée RangeDo ne peut être égale à -1)
         float maxDistance = -1;
         foreach (AttackActionController attackActionController in _attackActionControllers)
         {
             if (maxDistance == -1 || maxDistance < attackActionController.AttackActionData.RangeDo)
             {
-                maxDistance = attackActionController.AttackActionData.RangeDo;
+                // Enlever 1 a la distace a atteindre, c'est pour que la portée de l'attaque soit valide malgrès la potentielle différence de hauteur avec la cible
+                maxDistance = attackActionController.AttackActionData.RangeDo - 1;
             }
         }
 
-        if (maxDistance == -1)
+        if (maxDistance <= 0)
         {
-            maxDistance = 1;
+            maxDistance = 0.1f;
         }
         return maxDistance;
     }
 
     private GameObject GetCurrentTarget()
     {
+        //Pour chaque attaque (on en a qu'une pour l'instant)
         foreach (AttackActionController attackActionController in _attackActionControllers)
         {
+            // On tente de détecter une nouvelle cible
             GameObject newTarget = attackActionController.DetectNewTarget();
             if (newTarget)
             {
-                return newTarget;
+                // On crée un chemin avec la cible
+                NavMeshPath path= new NavMeshPath();
+                _navMeshAgent.CalculatePath(newTarget.transform.position, path);
+
+                // Si ce chemin n'est pas complet
+                if(path.status != NavMeshPathStatus.PathComplete)
+                {
+                    // On récupère le type de la target
+                    EntityType type = newTarget.GetComponent<EntityController>().Datas.Type;
+
+                    // Si c'est une tour ou une barricade, alors c'est bon et on peut garder
+                    if (type == EntityType.Tower | type == EntityType.Barricade)
+                    {
+                        return newTarget;
+                    }
+                }
+                //Et si le chemin est complet alors c'est bon
+                else
+                {
+                    return newTarget;
+                }
             }
         }
 
