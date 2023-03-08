@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GlassCanonAttack
   m_EditorClassIdentifier: 
   _timeToDoAction: 1
-  _damage: 15
+  _damage: 55
   _rangeDo: 10
   _rangeDetect: 25
