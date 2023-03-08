@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
   m_Name: RangeMinionTest
   m_EditorClassIdentifier: 
-  _life: 20
+  _life: 150
   _action: {fileID: 11400000, guid: 934345a735db9ee4fb4761b7d1dc0194, type: 2}
   _damageModifier: 1
   _type: 2

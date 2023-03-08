@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AI_GlasscanonAttack
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.5
-  _damage: 5
+  _damage: 30
   _rangeDo: 7
   _rangeDetect: 30

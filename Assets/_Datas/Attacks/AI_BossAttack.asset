@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AI_BossAttack
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.3
-  _damage: 15
+  _damage: 40
   _rangeDo: 2
   _rangeDetect: 50
