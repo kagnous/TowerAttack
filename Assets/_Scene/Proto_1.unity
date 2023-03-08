@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04006c7c7d50434ba7c28af84827d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scraps: 500
+  scraps: 140
   _actualEnergy: 200
   _energyMax: 0
   _energyConsumed: 0
