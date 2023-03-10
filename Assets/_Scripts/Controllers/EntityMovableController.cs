@@ -62,12 +62,18 @@ public class EntityMovableController : EntityController
         else
         {
             _navMeshAgent.stoppingDistance = 1f;
-            
+
             _navMeshAgent.SetDestination(globalTarget.transform.position);
-            
-            if(_navMeshAgent.remainingDistance < 1)
+
+            // Retour instant à la base des unités alliées
+            if (_faction == Faction.Player)
             {
-                Heal(Datas.Life);
+                transform.position = globalTarget.transform.position;
+
+                if (_navMeshAgent.remainingDistance < 1)
+                {
+                    Heal(Datas.Life);
+                }
             }
         }
 

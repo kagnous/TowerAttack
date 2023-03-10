@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class EntityManager : Singleton<EntityManager>
 {
+    [Header("AI Navigation")]
+    [Tooltip("Point d'apparition des ennemis")]
     public Transform unitsSpawn;
+    [Tooltip("Destination par defaut des ennemis")]
+    public GameObject globalAITarget;
+
+    [Header("Prefab AI")]
     public GameObject unitsCac;
     public GameObject unitsRange;
     public GameObject unitsGlassCanon;
     public GameObject unitsBoss;
+
+    [Header("Effects")]
+    [Tooltip("Effet visuel lors de la destruction d'unité")]
     public GameObject destroyEffect;
-    public GameObject globalAItarget;
 
     // Ajout mob progression
     private int numberWave = 1;
     [Header("Tweak random spawn by wave")]
+    [Min(0)]
     public int unitMinAdded = 0;
+    [Min(0)]
     public int unitMaxAdded = 5;
+    public bool addOneUnitByWave = false;
 
     private void Start()
     {
@@ -30,7 +41,7 @@ public class EntityManager : Singleton<EntityManager>
             GameObject unit = Instantiate(army[i], unitsSpawn.position, unitsSpawn.rotation);
             EntityMovableController controller = unit.GetComponent<EntityMovableController>();
             controller.Faction = Faction.IA;
-            controller.globalTarget = globalAItarget;
+            controller.globalTarget = globalAITarget;
 
             // Coloriage
             unit.GetComponent<MeshRenderer>().material.color = Color.red;
@@ -50,6 +61,7 @@ public class EntityManager : Singleton<EntityManager>
 
         List<GameObject> AIarmy = new List<GameObject>();
 
+        #region Mirror AI Army
         for (int i = 0; i < playerProfile.units.Count; i++)
         {
             GameObject unitToBuild;
@@ -81,10 +93,17 @@ public class EntityManager : Singleton<EntityManager>
                 AIarmy.Add(unitToBuild);
             }
         }
+        #endregion
 
-        // On ajoute x unités en plus pour la progression
-        int tmp = Random.Range(numberWave + 1, numberWave + 5);
-        for (int j = 0; j < tmp; j++)
+        #region Additionnal Units
+        //Ajout d'unités en plus
+        int tmp = Random.Range(unitMinAdded, unitMaxAdded+1);
+
+        // Ajout potentiel d'une unité par wave
+        if(addOneUnitByWave) { tmp += numberWave; }
+
+        //Ajout des unités random supplémentaires
+        for (int k = 0; k < tmp; k++)
         {
             int tmp2 = Random.Range(0, 2);
             switch (tmp2)
@@ -111,8 +130,10 @@ public class EntityManager : Singleton<EntityManager>
             AIarmy.Add(unitsBoss);
         }
 
+        #endregion
+
         // Au cas ou la wave est vide
-        if(AIarmy.Count <= 0) 
+        if (AIarmy.Count <= 0) 
         {
             AIarmy.Add(unitsCac);
         }

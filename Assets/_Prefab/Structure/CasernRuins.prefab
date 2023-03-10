@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7402039110241673594
+--- !u!1 &7725739404942872202
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7402039110241673598}
-  - component: {fileID: 7402039110241673593}
-  - component: {fileID: 7402039110241673592}
-  - component: {fileID: 7402039110241673595}
-  - component: {fileID: 7402039110241673599}
+  - component: {fileID: 7725739404942872206}
+  - component: {fileID: 7725739404942872201}
+  - component: {fileID: 7725739404942872200}
+  - component: {fileID: 7725739404942872203}
+  - component: {fileID: 7725739404942872207}
   m_Layer: 6
-  m_Name: TowerAntiHackRuins
+  m_Name: CasernRuins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!4 &7402039110241673598
+--- !u!4 &7725739404942872206
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402039110241673594}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.07, z: 0.18}
+  m_GameObject: {fileID: 7725739404942872202}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -8.07, y: 0, z: -2.51}
   m_LocalScale: {x: 1.8043, y: 0.08657933, z: 1.8043}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7402039110241673593
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!33 &7725739404942872201
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402039110241673594}
+  m_GameObject: {fileID: 7725739404942872202}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7402039110241673592
+--- !u!23 &7725739404942872200
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402039110241673594}
+  m_GameObject: {fileID: 7725739404942872202}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4aecb26b0e9ce3a458186fac1b04709a, type: 2}
+  - {fileID: 2100000, guid: b641632de2a9c3841857bdb1e2b34c06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7402039110241673595
+--- !u!136 &7725739404942872203
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402039110241673594}
+  m_GameObject: {fileID: 7725739404942872202}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -99,13 +99,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7402039110241673599
+--- !u!114 &7725739404942872207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402039110241673594}
+  m_GameObject: {fileID: 7725739404942872202}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 592469985ddc7944eb0dc330a8f66e1a, type: 3}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interractable: 1
   _cost: 100
-  structurePrefab: {fileID: 9038866016202981187, guid: 36ee8293fd61f04498af528a74eb4b56,
+  structurePrefab: {fileID: 2615120908542430919, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
     type: 3}
   spawnStructure:
     m_PersistentCalls:

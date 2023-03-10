@@ -23,7 +23,7 @@ public class EntityController : Entity
     private EntityData _datas; public EntityData Datas => _datas;
 
     [SerializeField]
-    private Faction _faction;   public Faction Faction { get { return _faction; } set { _faction = value; } }
+    protected Faction _faction;   public Faction Faction { get { return _faction; } set { _faction = value; } }
 
     [SerializeField, Tooltip("Si l'unité peut être hackée ou non")]
     private bool _canHacked = true; public bool CanHacked { get { return _canHacked; } set { _canHacked = value; } }

@@ -6,6 +6,7 @@ public class RessourcesManager : Singleton<RessourcesManager>
 {
     public int scraps = 100;
 
+    [Header("Energy (WIP)")]
     [Min(0)]
     public int _actualEnergy;
     public int _energyMax;
