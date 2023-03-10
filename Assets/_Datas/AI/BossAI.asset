@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
   m_Name: BossAI
   m_EditorClassIdentifier: 
-  _life: 25
+  _life: 300
   _action: {fileID: 11400000, guid: d79aafdf00cd2914dbdf387d6fdc7f4a, type: 2}
   _damageModifier: 1
   _type: 1
-  scrapsValue: 5
+  scrapsValue: 50
   energieCost: 0
   _tiers: []
   _speed: 3.5
