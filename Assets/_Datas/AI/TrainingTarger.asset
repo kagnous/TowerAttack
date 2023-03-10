@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: TrainingTarger
   m_EditorClassIdentifier: 
   _life: 20
-  _actions: []
-  level: 1
-  numberPop: 1
+  _action: {fileID: 0}
+  _damageModifier: 1
+  _type: 0
+  scrapsValue: 20
+  energieCost: 0
+  _tiers: []

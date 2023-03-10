@@ -12,6 +12,12 @@ public class EntityManager : Singleton<EntityManager>
     public GameObject destroyEffect;
     public GameObject globalAItarget;
 
+    // Ajout mob progression
+    private int numberWave = 1;
+    [Header("Tweak random spawn by wave")]
+    public int unitMinAdded = 0;
+    public int unitMaxAdded = 5;
+
     private void Start()
     {
         TimeManager.Instance.tickEvent.AddListener(TickConsumeEnergy);
@@ -69,18 +75,43 @@ public class EntityManager : Singleton<EntityManager>
                     continue;
             }
 
-            // On répète 3 fois car profil de base = 3x plus
-            for (int j = 0; j < 3; j++)
+            // On répète 2 fois car profil de base = 2x plus
+            for (int j = 0; j < 2; j++)
             {
                 AIarmy.Add(unitToBuild);
             }
         }
 
-        if(isSuperNight)
+        // On ajoute x unités en plus pour la progression
+        int tmp = Random.Range(numberWave + 1, numberWave + 5);
+        for (int j = 0; j < tmp; j++)
+        {
+            int tmp2 = Random.Range(0, 2);
+            switch (tmp2)
+            {
+                case 0:
+                    AIarmy.Add(unitsCac);
+                    break;
+                case 1:
+                    AIarmy.Add(unitsRange);
+                    break;
+                case 2:
+                    AIarmy.Add(unitsGlassCanon);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        numberWave++;
+
+        // Ajout du boss
+        if (isSuperNight)
         {
             AIarmy.Add(unitsBoss);
         }
 
+        // Au cas ou la wave est vide
         if(AIarmy.Count <= 0) 
         {
             AIarmy.Add(unitsCac);

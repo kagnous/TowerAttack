@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d98e1bc9404e2f48b73979792430439, type: 3}
   m_Name: TowerTest
   m_EditorClassIdentifier: 
-  _life: 200
+  _life: 300
   _action: {fileID: 11400000, guid: 0593701ecf28b1742addca6797db34d9, type: 2}
   _damageModifier: 1
   _type: 4

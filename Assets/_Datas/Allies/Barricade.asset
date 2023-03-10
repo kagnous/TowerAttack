@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d98e1bc9404e2f48b73979792430439, type: 3}
   m_Name: Barricade
   m_EditorClassIdentifier: 
-  _life: 20
-  _actions: []
+  _life: 300
+  _action: {fileID: 0}
+  _damageModifier: 1
   _type: 5
   scrapsValue: 0
   energieCost: 0
