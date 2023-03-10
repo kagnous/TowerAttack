@@ -19,6 +19,7 @@ public class TimeManager : Singleton<TimeManager>
     private const float _tick = 1f;
     private const float _hackTick = 5f;
 
+    [Header("Cycle jour/nuit")]
     [SerializeField, Tooltip("Durée du jour en s")]
     private float _dayDuration = 10;
 
@@ -27,10 +28,11 @@ public class TimeManager : Singleton<TimeManager>
 
     private float _daysSurvived = 0;
 
-    public float _timerDaytime = 0;
-    public float _timerTick = 0;
-    public float _timerHack = 0;
+    private float _timerDaytime = 0;
+    private float _timerTick = 0;
+    private float _timerHack = 0;
 
+    [Header("Events")]
     public UnityEvent tickEvent;
     public UnityEvent hackEvent;
 
@@ -40,13 +42,15 @@ public class TimeManager : Singleton<TimeManager>
     {
         sun = sunlight.GetComponent<Light>();
 
-        _actualTimeOfDay = TimeOfDay.Night;
-        sun.color = Color.grey;
+        // Setup du cycle jour/nuit
+        //_actualTimeOfDay = TimeOfDay.Night;
+        //sun.color = Color.grey;
     }
 
     private void Update()
     {
-        // JOURNEE
+        /*
+        #region Journée
         _timerDaytime += Time.deltaTime;
         if (_actualTimeOfDay == TimeOfDay.Day && _timerDaytime >= _dayDuration)
         {
@@ -72,7 +76,11 @@ public class TimeManager : Singleton<TimeManager>
 
             _actualTimeOfDay = TimeOfDay.Day;
         }
-            //Debug.Log(_actualTimeOfDay);
+        //Debug.Log(_actualTimeOfDay);
+
+        #endregion
+        */
+
 
         // TIMERS
         _timerTick += Time.deltaTime;
@@ -88,5 +96,13 @@ public class TimeManager : Singleton<TimeManager>
             hackEvent?.Invoke();
             _timerHack = 0;
         }
+    }
+
+    /// <summary>
+    /// Alternative au cycle jour/nuit
+    /// </summary>
+    public void NewDay()
+    {
+        EntityManager.Instance.PrepareWave(false);
     }
 }

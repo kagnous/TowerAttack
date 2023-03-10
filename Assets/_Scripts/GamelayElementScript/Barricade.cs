@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Barricade : Entity
 {
+    public int _cost = 100;
+
     private GameObject _barricade;
     public GameObject barricadePrefab;
 
     [SerializeField, Tooltip ("Tour à laquelle la arricade est rattachée")]
-    private TowerRuins towerRef;
+    private StructureRuins towerRef;
 
     public bool _canBuild = false;
 
@@ -17,7 +19,7 @@ public class Barricade : Entity
         if(towerRef)
         {
             GetComponent<MeshRenderer>().enabled = false;
-            towerRef.spawnTower.AddListener(CanBuild);
+            towerRef.spawnStructure.AddListener(CanBuild);
         }
     }
 
@@ -30,7 +32,7 @@ public class Barricade : Entity
 
     private void CanBuild()
     {
-        if(_barricade == null && towerRef.Tower != null)
+        if(_barricade == null && towerRef.Structure != null)
         {
             _canBuild = true;
             GetComponent<MeshRenderer>().enabled = true;
@@ -53,7 +55,7 @@ public class Barricade : Entity
     {
         if (_canBuild)
         {
-            if (RessourcesManager.Instance.TryBuy(100))
+            if (RessourcesManager.Instance.TryBuy(_cost))
             {
                 BuildBarricade();
             }
