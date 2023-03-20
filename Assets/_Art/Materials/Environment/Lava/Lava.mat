@@ -129,7 +129,7 @@ Material:
     - _Noise_Scale_2: 37.06
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PixelAmount: 50
+    - _PixelAmount: 3382.4
     - _PixelSize: 3
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -152,7 +152,7 @@ Material:
     - _HotLavaColor: {r: 0.2208682, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
-    - _ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _ScrollSpeed: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 100, g: 100, b: 0, a: 0}
   m_BuildTextureStacks: []
