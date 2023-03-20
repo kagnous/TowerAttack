@@ -143,13 +143,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientLight: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 1}
+    - _AmbientLight: {r: 0.30980393, g: 0.56078434, b: 0.7294118, a: 1}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ColdLavaColor: {r: 1, g: 0, b: 0.20553637, a: 0}
+    - _ColdLavaColor: {r: 1, g: 0, b: 0.20392132, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
-    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
-    - _HotLavaColor: {r: 0.2208682, g: 1, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 0.29011518, b: 0, a: 1}
+    - _HotLavaColor: {r: 0.77582246, g: 0.52711535, b: 0.18447503, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _ScrollSpeed: {r: 0.1, g: 0.1, b: 0, a: 0}
