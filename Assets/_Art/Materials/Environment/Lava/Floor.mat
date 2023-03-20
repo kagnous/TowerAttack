@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-259824674651734497
+--- !u!114 &-5860464290994558030
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Yellow
+  m_Name: Floor
   m_Shader: {fileID: 4800000, guid: 71d6765ad72e11541bc1448c891bbcf9, type: 3}
   m_ValidKeywords:
   - COLOR_GRADING_ON
@@ -152,8 +152,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AmbientLight: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _BaseColor: {r: 0.9529412, g: 1, b: 0, a: 1}
-    - _Color: {r: 0.9523609, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 0.5849056, g: 0.3804141, b: 0.2731399, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.5}

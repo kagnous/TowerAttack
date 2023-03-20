@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a3723b335e7004992e0a3ddfd87702, type: 3}
   m_Name: example
   m_EditorClassIdentifier: 
-  Source: {fileID: 2800000, guid: e4a8598b4a7f9de41bf934bafbc2ddce, type: 3}
+  Source: {fileID: 2800000, guid: c645f7591bb7efe4d97c28310a88cc24, type: 3}
   Method: 0
   Weights: {x: 1, y: 2, z: 1}
-  UseDitherPattern: 1
+  VConversionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UseDitherPattern: 0
   DitherPattern: {fileID: 11400000, guid: 218fec54e28fcca42abd36f468ac506a, type: 2}
-  GeneratedFileName: 
-  AutoGenerateFileName: 1
+  GeneratedFileName: Palette_TD
+  AutoGenerateFileName: 0
