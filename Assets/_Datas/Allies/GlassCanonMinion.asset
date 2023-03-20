@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
   m_Name: GlassCanonMinion
   m_EditorClassIdentifier: 
-  _life: 125
+  _life: 175
   _action: {fileID: 11400000, guid: 748305ac6c614e5488c91bc838ed36b3, type: 2}
   _damageModifier: 1
   _type: 3
