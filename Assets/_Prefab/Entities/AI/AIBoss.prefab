@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 7869745266007446037}
   - component: {fileID: 7869745266007446043}
   - component: {fileID: -1013846846820540454}
+  - component: {fileID: 4106397425575303536}
   m_Layer: 0
   m_Name: AIBoss
   m_TagString: Untagged
@@ -725,10 +726,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b55c88fa810dfd4189d20b93b8f7435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   level: 1
   _datas: {fileID: 11400000, guid: 50244f961da19444495cf2764872e4dd, type: 2}
   _faction: 1
   _canHacked: 1
+  hackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -761,6 +772,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4387e1d7dfc444d8389a50af5b5e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4106397425575303536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869745266007446035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f2cae7a75dc1d479c03956c57c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapPosition: 1
+  SnapEulerAngles: 1
+  SnapAngleStrategy: 0
+  angleResolution: 30
+  AlignPixelGrid: 0
+  PixelGridReference: {fileID: 0}
 --- !u!1001 &3874885865401130663
 PrefabInstance:
   m_ObjectHideFlags: 0

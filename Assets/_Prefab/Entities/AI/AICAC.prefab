@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4978711181820656947}
   - component: {fileID: 4978711181820656957}
   - component: {fileID: -1594367859517385754}
+  - component: {fileID: -4708733075498842788}
   m_Layer: 0
   m_Name: AICAC
   m_TagString: Untagged
@@ -139,10 +140,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b55c88fa810dfd4189d20b93b8f7435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   level: 1
   _datas: {fileID: 11400000, guid: 9cffe7cb9ebeb9e4ba535ce335be05d2, type: 2}
   _faction: 2
   _canHacked: 1
+  hackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -174,6 +185,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4387e1d7dfc444d8389a50af5b5e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4708733075498842788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978711181820656949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f2cae7a75dc1d479c03956c57c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapPosition: 1
+  SnapEulerAngles: 1
+  SnapAngleStrategy: 0
+  angleResolution: 30
+  AlignPixelGrid: 0
+  PixelGridReference: {fileID: 0}
 --- !u!1 &5522740023961706617
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,4 +15,4 @@ MonoBehaviour:
   _timeToDoAction: 0.2
   _damage: 40
   _rangeDo: 2
-  _rangeDetect: 40
+  _rangeDetect: 60
