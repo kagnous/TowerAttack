@@ -10,7 +10,6 @@ Material:
   m_Name: Lava
   m_Shader: {fileID: 4800000, guid: ea87474e8a4be1646904d60da23a0531, type: 3}
   m_ValidKeywords:
-  - PROPIXELIZER_DITHERING_ON
   - RECEIVE_SHADOWS_ON
   - USE_OBJECT_POSITION_ON
   m_InvalidKeywords: []
@@ -102,7 +101,7 @@ Material:
     m_Ints: []
     m_Floats:
     - COLOR_GRADING: 0
-    - PROPIXELIZER_DITHERING: 1
+    - PROPIXELIZER_DITHERING: 0
     - RECEIVE_SHADOWS: 1
     - USE_OBJECT_POSITION: 1
     - _AlphaClip: 0
@@ -143,13 +142,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientLight: {r: 0.30980393, g: 0.56078434, b: 0.7294118, a: 1}
+    - _AmbientLight: {r: 0.8117647, g: 0.34117648, b: 0.23529412, a: 1}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ColdLavaColor: {r: 1, g: 0, b: 0.20392132, a: 1}
+    - _ColdLavaColor: {r: 1, g: 0.2901961, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _EmissionColor: {r: 1, g: 0.29011518, b: 0, a: 1}
-    - _HotLavaColor: {r: 0.77582246, g: 0.52711535, b: 0.18447503, a: 1}
+    - _HotLavaColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _ScrollSpeed: {r: 0.1, g: 0.1, b: 0, a: 0}
