@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightingRamp:
-        m_Texture: {fileID: 2800000, guid: 211497300d75d8e4b9b3e2913a93e908, type: 3}
+        m_Texture: {fileID: 2800000, guid: b701d30b91d4a7f40b1e3f84dd32b2a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -135,7 +135,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _ID: 1
+    - _ID: 2
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -153,9 +153,9 @@ Material:
     - _AmbientLight: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _BaseColor: {r: 0.47843137, g: 0.28235295, b: 0.25490198, a: 1}
     - _Color: {r: 0.6320754, g: 0.35884148, b: 0.115681656, a: 1}
-    - _EdgeHighlightColor: {r: 0.865, g: 0.51049185, b: 0.46086067, a: 1}
+    - _EdgeHighlightColor: {r: 0.6431373, g: 0.8666667, b: 0.85882354, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.20899999, g: 0.12334426, b: 0.11135246, a: 1}
+    - _OutlineColor: {r: 0.45098037, g: 0.74509805, b: 0.827451, a: 0.49411765}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -6,7 +6,7 @@ using UnityEngine;
 public class HackingManager : MonoBehaviour
 {
     [SerializeField, Tooltip("Valeur moyenne de chance de hack\n0 = automatique, 20 = 1 chance sur 20 ect...")]
-    private int _hackingChance = 999999;
+    private int _hackingChance = 20;
 
     public GameObject hackingEffect;
 
