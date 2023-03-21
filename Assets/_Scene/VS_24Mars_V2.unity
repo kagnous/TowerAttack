@@ -536,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 3626759864382556768, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07999998
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 3626759864382556768, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
@@ -7537,7 +7537,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.179
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
@@ -7579,5 +7579,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur1
+      value: 
+      objectReference: {fileID: 934739088}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur2
+      value: 
+      objectReference: {fileID: 860266772}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur3
+      value: 
+      objectReference: {fileID: 1466486735}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur4
+      value: 
+      objectReference: {fileID: 831614616}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur5
+      value: 
+      objectReference: {fileID: 2123746400}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur6
+      value: 
+      objectReference: {fileID: 1355079924}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: mur7
+      value: 
+      objectReference: {fileID: 322938112}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: wallsAllies
+      value: 
+      objectReference: {fileID: 2100000, guid: 7802d24b132aa7f4f8e67704fa21a1d2, type: 2}
+    - target: {fileID: 7402039110241673599, guid: a73b1680c52463d43890c0a1fbf44be3,
+        type: 3}
+      propertyPath: wallsEnnemies
+      value: 
+      objectReference: {fileID: 2100000, guid: 5033babc7996b764ca5a637973aa10b8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73b1680c52463d43890c0a1fbf44be3, type: 3}

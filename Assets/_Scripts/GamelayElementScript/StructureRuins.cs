@@ -21,13 +21,31 @@ public class StructureRuins : Entity
     [SerializeField]
     private GameObject mur1;
     [SerializeField]
+    private GameObject mur2;
+    [SerializeField]
+    private GameObject mur3;
+    [SerializeField]
+    private GameObject mur4;
+    [SerializeField]
+    private GameObject mur5;
+    [SerializeField]
+    private GameObject mur6;
+    [SerializeField]
+    private GameObject mur7;
+    [SerializeField]
     private Material wallsAllies;
     [SerializeField]
     private Material wallsEnnemies;
-
+    // Trigger pour changer la couleur des murs pour le start 
     public void Start()
     {
-        mur1.GameObject<MeshRenderer> ().material = wallsEnnemies;
+        mur1.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur2.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur3.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur4.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur5.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur6.GetComponent<MeshRenderer> ().material = wallsEnnemies;
+        mur7.GetComponent<MeshRenderer> ().material = wallsEnnemies;
     }
 
     public override void OnClick()
@@ -40,15 +58,20 @@ public class StructureRuins : Entity
     }
 
     public override void OnAltClick() { }
-
+    // Trigger pour changer la couleur des murs et build la tour le sang
     public void BuildStructure()
     {
         if (structurePrefab && structure == null)
         {
             structure = Instantiate(structurePrefab, new Vector3(transform.position.x, transform.position.y +1.2f, transform.position.z), transform.rotation);
             spawnStructure?.Invoke();
-
-            mur1.GameObject<MeshRenderer> ().material = wallsAllies;
+            mur1.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur2.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur3.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur4.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur5.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur6.GetComponent<MeshRenderer> ().material = wallsAllies;
+            mur7.GetComponent<MeshRenderer> ().material = wallsAllies;
         }
     }
 }
