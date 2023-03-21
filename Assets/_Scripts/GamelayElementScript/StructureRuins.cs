@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class StructureRuins : Entity
 {
@@ -17,7 +18,20 @@ public class StructureRuins : Entity
     [Tooltip("Event lancé à la construction du batiment")]
     public UnityEvent spawnStructure;
 
+    [SerializeField]
+    private GameObject mur1;
+    [SerializeField]
+    private Material wallsAllies;
+    [SerializeField]
+    private Material wallsEnnemies;
+
+    public void Start()
+    {
+        mur1.GameObject<MeshRenderer> ().material = wallsEnnemies;
+    }
+
     public override void OnClick()
+
     {
         if(RessourcesManager.Instance.TryBuy(_cost))
         {
@@ -33,6 +47,8 @@ public class StructureRuins : Entity
         {
             structure = Instantiate(structurePrefab, new Vector3(transform.position.x, transform.position.y +1.2f, transform.position.z), transform.rotation);
             spawnStructure?.Invoke();
+
+            mur1.GameObject<MeshRenderer> ().material = wallsAllies;
         }
     }
 }
