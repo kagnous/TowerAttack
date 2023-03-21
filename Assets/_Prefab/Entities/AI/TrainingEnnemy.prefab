@@ -146,7 +146,7 @@ MonoBehaviour:
   SnapEulerAngles: 1
   SnapAngleStrategy: 0
   angleResolution: 30
-  AlignPixelGrid: 0
+  AlignPixelGrid: 1
   PixelGridReference: {fileID: 0}
 --- !u!1001 &3473114546424116161
 PrefabInstance:

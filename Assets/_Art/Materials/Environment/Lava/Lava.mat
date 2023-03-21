@@ -121,7 +121,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _ID: 66
+    - _ID: 255
     - _Metallic: 0
     - _Noise_Power: 1.01
     - _Noise_Scale_1: 45.5
@@ -146,10 +146,10 @@ Material:
     - _BaseColor: {r: 1, g: 0.90992314, b: 0, a: 1}
     - _ColdLavaColor: {r: 1, g: 0.2901961, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 1, g: 0.29011518, b: 0, a: 1}
     - _HotLavaColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 1, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.33962262, g: 0.089996286, b: 0.0675849, a: 1}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _ScrollSpeed: {r: 0.01, g: 0.04, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
