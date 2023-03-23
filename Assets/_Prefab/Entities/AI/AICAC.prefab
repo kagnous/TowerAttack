@@ -201,7 +201,7 @@ MonoBehaviour:
   SnapEulerAngles: 1
   SnapAngleStrategy: 0
   angleResolution: 30
-  AlignPixelGrid: 0
+  AlignPixelGrid: 1
   PixelGridReference: {fileID: 0}
 --- !u!1 &5522740023961706617
 GameObject:

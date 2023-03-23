@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class StructureRuins : Entity
 {
@@ -16,8 +17,9 @@ public class StructureRuins : Entity
 
     [Tooltip("Event lancé à la construction du batiment")]
     public UnityEvent spawnStructure;
-
+    
     public override void OnClick()
+
     {
         if(RessourcesManager.Instance.TryBuy(_cost))
         {
@@ -26,7 +28,7 @@ public class StructureRuins : Entity
     }
 
     public override void OnAltClick() { }
-
+    // Trigger pour changer la couleur des murs et build la tour le sang
     public void BuildStructure()
     {
         if (structurePrefab && structure == null)

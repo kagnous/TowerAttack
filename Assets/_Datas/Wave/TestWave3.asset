@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4549fc3a5d38a6946b2f84812c1ae8cc, type: 3}
-  m_Name: RangeAttackTest
+  m_Script: {fileID: 11500000, guid: 01938c3832f730243a18fa019b814e58, type: 3}
+  m_Name: TestWave3
   m_EditorClassIdentifier: 
-  _timeToDoAction: 0.5
-  _damage: 10
-  _rangeDo: 11
-  _rangeDetect: 60
+  army:
+  - {fileID: 4978711181820656949, guid: 97972a06971c68449a6ec6d66933ab17, type: 3}
+  - {fileID: 7869745266007446035, guid: 6d1301028097115468f2bfd6d02751b1, type: 3}

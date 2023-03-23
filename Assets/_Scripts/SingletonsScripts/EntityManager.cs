@@ -20,9 +20,20 @@ public class EntityManager : Singleton<EntityManager>
     [Tooltip("Effet visuel lors de la destruction d'unité")]
     public GameObject destroyEffect;
 
-    // Ajout mob progression
     private int numberWave = 1;
-    [Header("Tweak random spawn by wave")]
+
+    [Header("Wave parameters"), Min(0)]
+    [Tooltip("Intervalle de temps entre le spawn de 2 unités")]
+    public float cadenceSpawn = 1f;
+
+    [Tooltip("Override des wave auto par des ensembles prédefinis\nDefault Wave si nul")]
+    public List<WaveData> overridesWaves;
+
+    [Tooltip("Amrée par défaut de la wave\nMode mirroir si nul")]
+    public WaveData defaultWave;
+
+    // Ajout mob progression
+    [Header("Additionnals Units")]
     [Min(0)]
     public int unitMinAdded = 0;
     [Min(0)]
@@ -34,7 +45,7 @@ public class EntityManager : Singleton<EntityManager>
         TimeManager.Instance.tickEvent.AddListener(TickConsumeEnergy);
     }
 
-    public IEnumerator WaveAttack(List<GameObject> army, float delay)
+    public IEnumerator WaveAttack(List<GameObject> army)
     {
         for (int i = 0; i < army.Count; i++)
         {
@@ -51,17 +62,102 @@ public class EntityManager : Singleton<EntityManager>
                 mesh.material.color = Color.red;
             }
 
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(cadenceSpawn);
         }
     }
 
     public void PrepareWave(bool isSuperNight)
     {
-        PlayerProfile playerProfile = IdentifyPlayerProfile();
+
 
         List<GameObject> AIarmy = new List<GameObject>();
 
-        #region Mirror AI Army
+        // Si la liste des override existe à la wave en question
+        if (overridesWaves.Count >= numberWave)
+        {
+            // Si il y a une wave renseigner
+            // (le -1 c'est car numberWave commence à 1 et la liste à 0)
+            if (overridesWaves[numberWave-1] != null)
+            {
+                AIarmy.AddRange(overridesWaves[numberWave-1].army);
+            }
+            // Sinon si il y a une default awave
+            else if (defaultWave != null)
+            {
+                AIarmy.AddRange(defaultWave.army);
+            }
+            // Si rien n'est renseigner
+            else
+            {
+                AIarmy.AddRange(MirrorArmy());
+            }
+        }
+        // Sinon si on a quand même une wave par défaut
+        else if (defaultWave != null)
+        {
+            AIarmy.AddRange(defaultWave.army);
+        }
+        // Si rien n'est renseigner
+        else
+        {
+            AIarmy.AddRange(MirrorArmy());
+        }
+
+        #region Additionnal Units
+        //Ajout d'unités en plus
+        int tmp = Random.Range(unitMinAdded, unitMaxAdded + 1);
+
+        // Ajout potentiel d'une unité par wave
+        if (addOneUnitByWave) { tmp += numberWave; }
+
+        //Ajout des unités random supplémentaires
+        for (int k = 0; k < tmp; k++)
+        {
+            int tmp2 = Random.Range(0, 2);
+            switch (tmp2)
+            {
+                case 0:
+                    AIarmy.Add(unitsCac);
+                    break;
+                case 1:
+                    AIarmy.Add(unitsRange);
+                    break;
+                case 2:
+                    AIarmy.Add(unitsGlassCanon);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // Ajout du boss
+        if (isSuperNight)
+        {
+            AIarmy.Add(unitsBoss);
+        }
+
+        #endregion
+
+        // Au cas ou la wave est vide
+        if (AIarmy.Count <= 0)
+        {
+            AIarmy.Add(unitsCac);
+        }
+
+        // Appel de la coroutine qui cadence l'instanciation
+        StartCoroutine(WaveAttack(AIarmy));
+
+        numberWave++;
+    }
+
+    /// <summary>
+    /// Retourne une armée constituée du double des unités alliée
+    /// </summary>
+    public List<GameObject> MirrorArmy()
+    {
+        PlayerProfile playerProfile = IdentifyPlayerProfile();
+        List<GameObject> AIMirrorArmy = new List<GameObject>();
+
         for (int i = 0; i < playerProfile.units.Count; i++)
         {
             GameObject unitToBuild;
@@ -90,56 +186,10 @@ public class EntityManager : Singleton<EntityManager>
             // On répète 2 fois car profil de base = 2x plus
             for (int j = 0; j < 2; j++)
             {
-                AIarmy.Add(unitToBuild);
+                AIMirrorArmy.Add(unitToBuild);
             }
         }
-        #endregion
-
-        #region Additionnal Units
-        //Ajout d'unités en plus
-        int tmp = Random.Range(unitMinAdded, unitMaxAdded+1);
-
-        // Ajout potentiel d'une unité par wave
-        if(addOneUnitByWave) { tmp += numberWave; }
-
-        //Ajout des unités random supplémentaires
-        for (int k = 0; k < tmp; k++)
-        {
-            int tmp2 = Random.Range(0, 2);
-            switch (tmp2)
-            {
-                case 0:
-                    AIarmy.Add(unitsCac);
-                    break;
-                case 1:
-                    AIarmy.Add(unitsRange);
-                    break;
-                case 2:
-                    AIarmy.Add(unitsGlassCanon);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        numberWave++;
-
-        // Ajout du boss
-        if (isSuperNight)
-        {
-            AIarmy.Add(unitsBoss);
-        }
-
-        #endregion
-
-        // Au cas ou la wave est vide
-        if (AIarmy.Count <= 0) 
-        {
-            AIarmy.Add(unitsCac);
-        }
-
-        // Une seconde de delai car baseProfil
-        StartCoroutine(WaveAttack(AIarmy, 1f));
+        return AIMirrorArmy;
     }
 
     public void DestroyEntity(GameObject toDestroy)
@@ -147,13 +197,13 @@ public class EntityManager : Singleton<EntityManager>
         if (toDestroy.TryGetComponent(out EntityController entity))
         {
             RessourcesManager.Instance.scraps += entity.Datas.ScrapsValue;
-            if(entity.Faction == Faction.Player)
+            if (entity.Faction == Faction.Player)
             {
                 RessourcesManager.Instance.CalculEnergyCost();
             }
         }
 
-            //Debug.Log("Destroy " + toDestroy.name);
+        //Debug.Log("Destroy " + toDestroy.name);
         Destroy(toDestroy);
         Instantiate(destroyEffect, toDestroy.transform.position, toDestroy.transform.rotation);
     }
@@ -174,9 +224,9 @@ public class EntityManager : Singleton<EntityManager>
     public void TickConsumeEnergy()
     {
         //Appelle la fonction de réduction d'énergie, qui retourne vrai si l'énergie est à 0 après réduction
-        if(RessourcesManager.Instance.RemoveEnergie(RessourcesManager.Instance._energyConsumed))
+        if (RessourcesManager.Instance.RemoveEnergie(RessourcesManager.Instance._energyConsumed))
         {
-                //Debug.Log("Manque d'energie");
+            //Debug.Log("Manque d'energie");
         }
 
         // TMP A ENLEVER !!!!!!!!!!!!!!!
