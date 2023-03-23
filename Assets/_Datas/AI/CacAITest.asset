@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a1ec01c3b68b04a9b33d4e73d060e5, type: 3}
   m_Name: CacAITest
   m_EditorClassIdentifier: 
-  _life: 100
+  _life: 60
   _action: {fileID: 11400000, guid: f3a84b3041c26d14e833a5dc5ed991f0, type: 2}
-  _damageModifier: 1
+  _damageModifier: 2
   _type: 1
   scrapsValue: 20
   energieCost: 0
   _tiers: []
-  _speed: 3
+  _speed: 4

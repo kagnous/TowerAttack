@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AI_RangeAttack
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.5
-  _damage: 15
+  _damage: 10
   _rangeDo: 9
   _rangeDetect: 30
