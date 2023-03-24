@@ -149,7 +149,7 @@ Material:
     - _EdgeHighlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 1, g: 0.29011518, b: 0, a: 1}
     - _HotLavaColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.33962262, g: 0.089996286, b: 0.0675849, a: 1}
+    - _OutlineColor: {r: 0.3396226, g: 0.089996256, b: 0.06758488, a: 0.5058824}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _ScrollSpeed: {r: 0.01, g: 0.04, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
