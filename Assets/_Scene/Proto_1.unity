@@ -848,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399367589}
   m_LocalRotation: {x: -0, y: -0.70486265, z: -0, w: 0.70934385}
-  m_LocalPosition: {x: 2.84, y: 1.08, z: 9.43}
+  m_LocalPosition: {x: 0.49, y: 1.08, z: 9.49}
   m_LocalScale: {x: 3.8634112, y: 2.2463, z: 2.2462997}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -872,6 +872,7 @@ MonoBehaviour:
   unit: {fileID: 7869745266007446035, guid: baa963ee365e615448b38050646bcf3f, type: 3}
   spawnPoint: {fileID: 138420842}
   cost: 40
+  colldown: 3
 --- !u!65 &399367592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1788,6 +1789,12 @@ MonoBehaviour:
     type: 3}
   destroyEffect: {fileID: 929558690960918533, guid: 81a2f48987cb3af42abaee8f957ba4e7,
     type: 3}
+  cadenceSpawn: 0
+  overridesWaves:
+  - {fileID: 11400000, guid: 5708923c26449c24b908ab03c3bc6a5f, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 4579f81aa61e5fc428c0ba23626a3b50, type: 2}
+  defaultWave: {fileID: 11400000, guid: c027a1324b0e0b4479231f44851c264e, type: 2}
   unitMinAdded: 0
   unitMaxAdded: 0
   addOneUnitByWave: 0
@@ -3218,6 +3225,7 @@ MonoBehaviour:
   unit: {fileID: 7869745266007446035, guid: 4017f79d60e7e2d4ca712a925d760e3e, type: 3}
   spawnPoint: {fileID: 395911296}
   cost: 40
+  colldown: 0
 --- !u!65 &1982772989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3289,7 +3297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982772987}
   m_LocalRotation: {x: -0, y: -0.70486265, z: -0, w: 0.70934385}
-  m_LocalPosition: {x: 0.35, y: 1.08, z: 9.43}
+  m_LocalPosition: {x: 3.25, y: 1.08, z: 9.45}
   m_LocalScale: {x: 3.8634112, y: 2.2463, z: 2.2462997}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3373,11 +3381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunlight: {fileID: 410087039}
-  _dayDuration: 10
-  _nightDuration: 10
-  _timerDaytime: 0
-  _timerTick: 0.1
-  _timerHack: 2
   tickEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3398,6 +3401,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1980383700}
     m_Modifications:
+    - target: {fileID: 2615120908542430914, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
+        type: 3}
+      propertyPath: colldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2615120908542430915, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
         type: 3}
       propertyPath: m_RootOrder

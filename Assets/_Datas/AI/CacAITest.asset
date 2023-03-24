@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _life: 60
   _action: {fileID: 11400000, guid: f3a84b3041c26d14e833a5dc5ed991f0, type: 2}
-  _damageModifier: 1
+  _damageModifier: 2
   _type: 1
   scrapsValue: 20
   energieCost: 0

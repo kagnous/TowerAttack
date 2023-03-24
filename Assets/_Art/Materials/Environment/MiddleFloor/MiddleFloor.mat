@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walls_Ennemy
+  m_Name: MiddleFloor
   m_Shader: {fileID: 4800000, guid: 71d6765ad72e11541bc1448c891bbcf9, type: 3}
   m_ValidKeywords:
   - COLOR_GRADING_ON
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 18ca9fff63a5167418b7a5c68d02e829, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4cd5f6aa131b6ef41b962837b99b65b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -123,7 +123,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _ID: 6
+    - _ID: 144
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -138,16 +138,16 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientLight: {r: 0.64705884, g: 0.18823525, b: 0.18823525, a: 0.5019608}
+    - _AmbientLight: {r: 0.64705884, g: 0.1882353, b: 0.1882353, a: 0.5019608}
     - _BaseColor: {r: 0.65882355, g: 0.70980394, b: 0.69803923, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgeHighlightColor: {r: 0.85490197, g: 0.5254902, b: 0.24313721, a: 0.5019608}
+    - _EdgeHighlightColor: {r: 0.68476397, g: 0.88699996, b: 0.8403301, a: 0.5019608}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.64705884, g: 0.18823525, b: 0.18823525, a: 0.5019608}
+    - _OutlineColor: {r: 0.65882355, g: 0.70980394, b: 0.69803923, a: 0.5}
     - _PixelGridOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2201046878997595170
+--- !u!114 &1884832394664058009
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
