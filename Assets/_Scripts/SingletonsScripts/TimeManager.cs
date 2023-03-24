@@ -19,16 +19,18 @@ public class TimeManager : Singleton<TimeManager>
     private const float _tick = 1f;
     private const float _hackTick = 5f;
 
-    [Header("Cycle jour/nuit")]
+    // CYCLE JOUR / NUIT AUTO
+    /*[Header("Cycle jour/nuit")]
     [SerializeField, Tooltip("Durée du jour en s")]
     private float _dayDuration = 10;
 
     [SerializeField, Tooltip("Durée de la nuit en s")]
-    private float _nightDuration = 10;
+    private float _nightDuration = 10;*/
 
-    private float _daysSurvived = 0;
+    //private float _daysSurvived = 0;
 
-    private float _timerDaytime = 0;
+    //private float _timerDaytime = 0;
+
     private float _timerTick = 0;
     private float _timerHack = 0;
 

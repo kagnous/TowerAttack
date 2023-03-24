@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AttackActionController : ActionController
 {
@@ -161,23 +162,36 @@ public class AttackActionController : ActionController
                 // Si il y a une munition
                 if (prefabAttack != null)
                 {
-                    // On l'instancie
-                    GameObject newProjectile = Instantiate(prefabAttack);
-
-                    // On la positionne
-                    newProjectile.transform.position = originAttack.position;
-
-                    // On récupère le component Projectile
-                    Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
-
-                    // Si il existe
-                    if (projectileCompo)
+                    // On teste une ligne directe avec la cible
+                    RaycastHit hit;
+                    Physics.Raycast(transform.position, _currentTarget.transform.position - transform.position, out hit);
+                    if (hit.collider.transform.TryGetComponent(out EntityController closestTarget))
                     {
-                        // On lui donne une cible
-                        projectileCompo.InitTarget(_currentTarget);
-                        // On lui donne ces dégâts
-                        projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
+                        // On l'instancie
+                        GameObject newProjectile = Instantiate(prefabAttack);
+
+                        // On la positionne
+                        newProjectile.transform.position = originAttack.position;
+
+                        // On récupère le component Projectile
+                        Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
+
+                        // Si il existe
+                        if (projectileCompo)
+                        {
+                            // On lui donne une cible
+                            projectileCompo.InitTarget(_currentTarget);
+                            // On lui donne ces dégâts
+                            projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
+                        }
+                        Debug.Log("FIRE !");
                     }
+                    else
+                    {
+                        Debug.Log(hit.collider.transform.gameObject.name);
+                    }
+
+                    
                 }
                 // Sinon juste il fait les dégâts (coup au càc notemment)
                 else
