@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.5
   _damage: 30
-  _rangeDo: 11
+  _rangeDo: 15
   _rangeDetect: 60

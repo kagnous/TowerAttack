@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1776808573164580852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 0.3}
+  m_LocalScale: {x: 6, y: 2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295291049445167168}
@@ -145,8 +145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b9d019f2614fb4d9a3b82e4eefa61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
+  level: 1
   _datas: {fileID: 11400000, guid: cc18447a49b2458489d75ba7e3ce4a64, type: 2}
   _faction: 0
+  _canHacked: 1
+  hackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
