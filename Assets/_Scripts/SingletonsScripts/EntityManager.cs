@@ -5,8 +5,8 @@ using UnityEngine;
 public class EntityManager : Singleton<EntityManager>
 {
     [Header("AI Navigation")]
-    [Tooltip("Point d'apparition des ennemis")]
-    public Transform unitsSpawn;
+    [Tooltip("Points d'apparition des ennemis")]
+    public List<Transform> unitsSpawns;
     [Tooltip("Destination par defaut des ennemis")]
     public GameObject globalAITarget;
 
@@ -43,13 +43,16 @@ public class EntityManager : Singleton<EntityManager>
     private void Start()
     {
         TimeManager.Instance.tickEvent.AddListener(TickConsumeEnergy);
+
+        if (unitsSpawns.Count <= 0) { Debug.Log("AUCUN POINT DE SPAWN RENSEIGNE"); }
     }
 
     public IEnumerator WaveAttack(List<GameObject> army)
     {
         for (int i = 0; i < army.Count; i++)
         {
-            GameObject unit = Instantiate(army[i], unitsSpawn.position, unitsSpawn.rotation);
+            Transform spawn = unitsSpawns[Random.Range(0,unitsSpawns.Count)];
+            GameObject unit = Instantiate(army[i], spawn.position, spawn.rotation);
             EntityMovableController controller = unit.GetComponent<EntityMovableController>();
             controller.Faction = Faction.IA;
             controller.globalTarget = globalAITarget;
@@ -77,9 +80,9 @@ public class EntityManager : Singleton<EntityManager>
         {
             // Si il y a une wave renseigner
             // (le -1 c'est car numberWave commence à 1 et la liste à 0)
-            if (overridesWaves[numberWave-1] != null)
+            if (overridesWaves[numberWave - 1] != null)
             {
-                AIarmy.AddRange(overridesWaves[numberWave-1].army);
+                AIarmy.AddRange(overridesWaves[numberWave - 1].army);
             }
             // Sinon si il y a une default awave
             else if (defaultWave != null)
