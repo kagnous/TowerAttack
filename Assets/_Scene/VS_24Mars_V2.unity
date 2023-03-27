@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: fcaa23a84f102e641ab1f6dbf97bf289, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.16807024, g: 0.19885854, b: 0.23082775, a: 1}
+  m_IndirectSpecularColor: {r: 0.3334856, g: 0.3552956, b: 0.37986553, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -99,7 +99,8 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 250eb1a0bb4d9994da4e2394b05f98dd,
     type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e3dd7c9b67676f44fabbb87c9a979395,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -194,7 +195,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &51705316
 Transform:
@@ -346,6 +347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarricadeBase (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4517057459188096515, guid: bf7f49e8060c18045a68bc66f3611a3d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5131011799883322715, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
       propertyPath: towerRef
@@ -401,7 +407,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &109449006
 Transform:
@@ -495,7 +501,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &138420842
 Transform:
@@ -537,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 3626759864382556768, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 0.041
       objectReference: {fileID: 0}
     - target: {fileID: 3626759864382556768, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
@@ -584,6 +590,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarricadeBase
       objectReference: {fileID: 0}
+    - target: {fileID: 4517057459188096515, guid: bf7f49e8060c18045a68bc66f3611a3d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5131011799883322715, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
       propertyPath: towerRef
@@ -608,7 +619,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &193242831
 Transform:
@@ -663,7 +674,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -696,7 +707,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -737,7 +748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &200287916
 Transform:
@@ -854,6 +865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawn.001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4e23496c5f18954f809c5a98473870c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e23496c5f18954f809c5a98473870c, type: 3}
 --- !u!4 &208041480 stripped
@@ -922,7 +938,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &266234546
 Transform:
@@ -961,7 +977,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &312541357
 Transform:
@@ -1055,7 +1071,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &316804743
 Transform:
@@ -1092,7 +1108,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &322938113
 Transform:
@@ -1322,7 +1338,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &362187416
 Transform:
@@ -1496,7 +1512,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &395911296
 Transform:
@@ -1537,7 +1553,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &399367590
 Transform:
@@ -1704,11 +1720,11 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6500
+  m_ColorTemperature: 6315
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -1722,14 +1738,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.22146575, y: -0.564634, z: -0.023415303, w: 0.79472834}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.14528005, y: -0.103578895, z: 0.015295195, w: 0.9838349}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 934038867}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 19, y: -73.769, z: -17.69}
+  m_LocalEulerAnglesHint: {x: 16.8, y: -12.02, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,6 +1837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolarPanel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446352798246144480, guid: e4f77d484e12e0b4184c1b42cb58b6c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f77d484e12e0b4184c1b42cb58b6c8, type: 3}
@@ -1964,6 +1985,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wally_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5503509239673127357, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933559354860013259, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_RootOrder
@@ -2018,6 +2049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607175156097598589, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b1948485afb6a4faa3b0deda71b0a5, type: 3}
@@ -2306,7 +2342,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &691591676
 Transform:
@@ -2403,7 +2439,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &740811917
 Transform:
@@ -2592,7 +2628,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673594, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
@@ -2668,7 +2704,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &831614617
 Transform:
@@ -2797,8 +2833,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: be96147001cd4d743ade4acbe23dc7d6, type: 2}
   defaultWave: {fileID: 11400000, guid: c027a1324b0e0b4479231f44851c264e, type: 2}
   unitMinAdded: 0
-  unitMaxAdded: 0
-  addOneUnitByWave: 0
+  unitMaxAdded: 12
+  addOneUnitByWave: 1
 --- !u!4 &838144049
 Transform:
   m_ObjectHideFlags: 0
@@ -2832,7 +2868,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &860266773
 Transform:
@@ -2963,7 +2999,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &909970314
 Transform:
@@ -3002,7 +3038,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &927193786
 Transform:
@@ -3134,7 +3170,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &934739089
 Transform:
@@ -3228,7 +3264,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &959136463
 Transform:
@@ -3267,7 +3303,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &959795002
 Transform:
@@ -3425,6 +3461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarricadeBase (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4517057459188096515, guid: bf7f49e8060c18045a68bc66f3611a3d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5131011799883322715, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
       propertyPath: towerRef
@@ -3465,6 +3506,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wally_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503509239673127357, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933559354860013259, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
@@ -3521,6 +3572,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.929
       objectReference: {fileID: 0}
+    - target: {fileID: 7607175156097598589, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b1948485afb6a4faa3b0deda71b0a5, type: 3}
 --- !u!4 &1063595204 stripped
@@ -3536,10 +3592,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1544770469}
     m_Modifications:
+    - target: {fileID: 2986386210556902233, guid: 0de111275cab52c4c829685990deb72a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4890133971901909676, guid: 0de111275cab52c4c829685990deb72a,
         type: 3}
       propertyPath: m_Name
       value: Cables_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890133971901909676, guid: 0de111275cab52c4c829685990deb72a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8481361302184527117, guid: 0de111275cab52c4c829685990deb72a,
         type: 3}
@@ -3621,7 +3687,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1099416103
 Transform:
@@ -3758,7 +3824,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673594, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
@@ -3831,7 +3897,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1180979953
 Transform:
@@ -3871,7 +3937,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1220918961
 Transform:
@@ -3942,7 +4008,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3975,7 +4041,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4003,7 +4069,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1231955264
 BoxCollider:
@@ -4118,7 +4184,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1355079925
 Transform:
@@ -4291,7 +4357,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1381499305
 Transform:
@@ -4442,6 +4508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarricadeBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517057459188096515, guid: bf7f49e8060c18045a68bc66f3611a3d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5131011799883322715, guid: bf7f49e8060c18045a68bc66f3611a3d,
         type: 3}
@@ -4641,6 +4712,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawn.001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4e23496c5f18954f809c5a98473870c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e23496c5f18954f809c5a98473870c, type: 3}
 --- !u!4 &1413731304 stripped
@@ -4666,7 +4742,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1445838566
 Transform:
@@ -4942,7 +5018,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1509922630
 Transform:
@@ -5204,7 +5280,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1542229001
 Transform:
@@ -5298,7 +5374,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1544770469
 Transform:
@@ -5358,7 +5434,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1553627823
 Transform:
@@ -5492,6 +5568,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.13
       objectReference: {fileID: 0}
+    - target: {fileID: 1115322823108254371, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1839141802621747259, guid: db01e4b8fb6da8149bde2910a35b1426,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5502,6 +5583,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 8ddd89d0a9165064d812c29bf9a17339, type: 2}
+    - target: {fileID: 2446043553534618921, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6180813315806303622, guid: db01e4b8fb6da8149bde2910a35b1426,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5519,8 +5605,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.34
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
         type: 3}
@@ -5567,10 +5668,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482542906754861499, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9147896578031375105, guid: db01e4b8fb6da8149bde2910a35b1426,
         type: 3}
       propertyPath: m_Name
       value: Ground_Shape_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147896578031375105, guid: db01e4b8fb6da8149bde2910a35b1426,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db01e4b8fb6da8149bde2910a35b1426, type: 3}
@@ -5664,6 +5775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolarPanel (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6446352798246144480, guid: e4f77d484e12e0b4184c1b42cb58b6c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f77d484e12e0b4184c1b42cb58b6c8, type: 3}
 --- !u!1 &1682938177
@@ -5683,7 +5799,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1682938178
 Transform:
@@ -5754,7 +5870,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5787,7 +5903,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5821,7 +5937,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1709293226
 Transform:
@@ -5876,7 +5992,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5909,7 +6025,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5959,7 +6075,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1765365649
 Transform:
@@ -6056,7 +6172,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1795137864
 Transform:
@@ -6153,7 +6269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1826016335
 Transform:
@@ -6253,7 +6369,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673594, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
@@ -6402,6 +6518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolarPanel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6446352798246144480, guid: e4f77d484e12e0b4184c1b42cb58b6c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f77d484e12e0b4184c1b42cb58b6c8, type: 3}
 --- !u!1 &1832416743
@@ -6421,7 +6542,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1832416744
 Transform:
@@ -6492,7 +6613,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -6525,7 +6646,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6612,6 +6733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolarPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446352798246144480, guid: e4f77d484e12e0b4184c1b42cb58b6c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f77d484e12e0b4184c1b42cb58b6c8, type: 3}
@@ -6706,6 +6832,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wally_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5503509239673127357, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933559354860013259, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_RootOrder
@@ -6729,7 +6865,7 @@ PrefabInstance:
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.1347779
+      value: -0.007255314
       objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
@@ -6739,7 +6875,7 @@ PrefabInstance:
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99087584
+      value: -0.9999737
       objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
@@ -6754,12 +6890,17 @@ PrefabInstance:
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -164.508
+      value: -180.831
       objectReference: {fileID: 0}
     - target: {fileID: 6439831746410114582, guid: d7b1948485afb6a4faa3b0deda71b0a5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607175156097598589, guid: d7b1948485afb6a4faa3b0deda71b0a5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b1948485afb6a4faa3b0deda71b0a5, type: 3}
@@ -6787,7 +6928,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1907621509
 Transform:
@@ -6897,6 +7038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerAntiHackRuins
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402039110241673594, guid: ae76d1b96282e854fa1ae60e5a623704,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: ae76d1b96282e854fa1ae60e5a623704,
         type: 3}
@@ -7033,6 +7179,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolarPanel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6446352798246144480, guid: e4f77d484e12e0b4184c1b42cb58b6c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f77d484e12e0b4184c1b42cb58b6c8, type: 3}
 --- !u!1 &1980383699
@@ -7049,7 +7200,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1980383700
 Transform:
@@ -7092,7 +7243,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1982772988
 MonoBehaviour:
@@ -7207,7 +7358,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2001622150
 Transform:
@@ -7335,7 +7486,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2046467016
 Transform:
@@ -7484,7 +7635,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2083861674
 Transform:
@@ -7581,7 +7732,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2089167750
 Transform:
@@ -7636,7 +7787,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7669,7 +7820,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -7709,6 +7860,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1980383700}
     m_Modifications:
+    - target: {fileID: 2615120907958690118, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2615120908542430915, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -7787,7 +7943,7 @@ PrefabInstance:
     - target: {fileID: 2615120908542430919, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97369e2ff8b66e4b88fcdc1c484a3f0, type: 3}
@@ -7811,7 +7967,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673594, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
@@ -7826,7 +7982,7 @@ PrefabInstance:
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.179
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 7402039110241673598, guid: a73b1680c52463d43890c0a1fbf44be3,
         type: 3}
