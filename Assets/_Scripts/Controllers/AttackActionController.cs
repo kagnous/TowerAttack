@@ -184,11 +184,11 @@ public class AttackActionController : ActionController
                             // On lui donne ces dégâts
                             projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
                         }
-                        Debug.Log("FIRE !");
+                            //Debug.Log("FIRE !");
                     }
                     else
                     {
-                        Debug.Log(hit.collider.transform.gameObject.name);
+                        //Debug.Log(hit.collider.transform.gameObject.name);
                     }
 
                     
