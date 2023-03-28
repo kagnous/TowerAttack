@@ -19,4 +19,4 @@ MonoBehaviour:
   scrapsValue: 50
   energieCost: 0
   _tiers: []
-  _speed: 3.5
+  _speed: 5
