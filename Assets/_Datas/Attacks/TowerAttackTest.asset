@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4549fc3a5d38a6946b2f84812c1ae8cc, type: 3}
   m_Name: TowerAttackTest
   m_EditorClassIdentifier: 
-  _timeToDoAction: 0.7
-  _damage: 35
-  _rangeDo: 15
+  _timeToDoAction: 0.5
+  _damage: 40
+  _rangeDo: 20
   _rangeDetect: 50
