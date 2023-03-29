@@ -16,7 +16,7 @@ MonoBehaviour:
   _action: {fileID: 11400000, guid: d79aafdf00cd2914dbdf387d6fdc7f4a, type: 2}
   _damageModifier: 1
   _type: 1
-  scrapsValue: 30
+  scrapsValue: 20
   energieCost: 0
   _tiers: []
   _speed: 5
