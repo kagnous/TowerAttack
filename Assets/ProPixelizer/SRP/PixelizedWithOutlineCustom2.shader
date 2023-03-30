@@ -3,33 +3,30 @@
 
     Properties
     {
-		_LightingRamp("LightingRamp", 2D) = "white" {}
-		_PaletteLUT("PaletteLUT", 2D) = "white" {}
-		[MainTex][NoScaleOffset]_Albedo("Albedo", 2D) = "white" {}
-		_Albedo_ST("Albedo_ST", Vector) = (1, 1, 0, 0)
-		[MainColor]_BaseColor("Color", Color) = (1, 1, 1, 1)
-		_AmbientLight("AmbientLight", Color) = (0.2, 0.2, 0.2, 1.0)
-		[IntRange] _PixelSize("PixelSize", Range(1, 5)) = 3
-		_PixelGridOrigin("PixelGridOrigin", Vector) = (0, 0, 0, 0)
-		[Normal][NoScaleOffset]_NormalMap("Normal Map", 2D) = "bump" {}
-		_NormalMap_ST("Normal Map_ST", Vector) = (1, 1, 0, 0)
-		[ToggleUI]_Use2DTexture("Use2DTexture", Float) = 0
-		[NoScaleOffset]_Emission("Emission", 2D) = "white" {}
-		_Emission_ST("Emission_ST", Vector) = (1, 1, 0, 0)
-		_EmissionColor("EmissionColor", Color) = (1, 1, 1, 0)
-		_AlphaClipThreshold("Alpha Clip Threshold", Range(0, 1)) = 0.5
-		[IntRange] _ID("ID", Range(0, 255)) = 1 // A unique ID used to differentiate objects for purposes of outlines.
-		_OutlineColor("OutlineColor", Color) = (0.0, 0.0, 0.0, 0.5)
-		_EdgeHighlightColor("Edge Highlight Color", Color) = (0.5, 0.5, 0.5, 0)
-		_DiffuseVertexColorWeight("DiffuseVertexColorWeight", Range(0, 1)) = 1
-		_EmissiveVertexColorWeight("EmissiveVertexColorWeight", Range(0, 1)) = 0
-		[HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
-		[HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
-		[HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
-		[Toggle]COLOR_GRADING("Use Color Grading", Float) = 0
-		[Toggle]USE_OBJECT_POSITION("Use Object Position", Float) = 1
-		[Toggle]RECEIVE_SHADOWS("ReceiveShadows", Float) = 1
-		[Toggle]PROPIXELIZER_DITHERING("Use Dithering", Float) = 1
+        [NoScaleOffset]_LightingRamp("LightingRamp", 2D) = "white" {}
+        [NoScaleOffset]_PaletteLUT("PaletteLUT", 2D) = "white" {}
+        [NoScaleOffset]_Albedo("Albedo", 2D) = "white" {}
+        _Albedo_ST("Albedo_ST", Vector) = (1, 1, 0, 0)
+        _BaseColor("Color", Color) = (1, 1, 1, 1)
+        _AmbientLight("AmbientLight", Color) = (0.1, 0.1, 0.1, 0.5019608)
+        _PixelSize("PixelSize", Range(1, 5)) = 1
+        _PixelGridOrigin("PixelGridOrigin", Vector) = (0, 0, 0, 0)
+        [Normal][NoScaleOffset]_NormalMap("Normal Map", 2D) = "bump" {}
+        _NormalMap_ST("Normal Map_ST", Vector) = (1, 1, 0, 0)
+        [ToggleUI]_Use2DTexture("Use2DTexture", Float) = 0
+        [NoScaleOffset]_Emission("Emission", 2D) = "black" {}
+        _Emission_ST("Emission_ST", Vector) = (1, 1, 0, 0)
+        _AlphaClipThreshold("Alpha Clip Threshold", Float) = 0.5
+        _ID("ID", Float) = 1
+        _OutlineColor("OutlineColor", Color) = (1, 1, 1, 0.5019608)
+        _EdgeHighlightColor("Edge Highlight Color", Color) = (0.5, 0.5, 0.5, 0.5058824)
+        [HDR]_EmissionColor("EmissionColor", Color) = (1, 1, 1, 0)
+        _DiffuseVertexColorWeight("DiffuseVertexColorWeight", Float) = 1
+        _EmissiveVertexColorWeight("EmissiveVertexColorWeight", Float) = 0
+        [Toggle]COLOR_GRADING("Use Color Grading", Float) = 1
+        [Toggle]USE_OBJECT_POSITION("Use Object Position", Float) = 1
+        [Toggle]RECEIVE_SHADOWS("Receive Shadows", Float) = 1
+        [Toggle]PROPIXELIZER_DITHERING("Use Dithering", Float) = 0
         _Tiling("Tiling", Vector) = (1, 1, 0, 0)
         _ScrollSpeed("ScrollSpeed", Vector) = (0, 0, 0, 0)
         _ColdLavaColor("ColdLavaColor", Color) = (1, 0, 0.2055364, 0)
@@ -86,7 +83,7 @@
 			// In some cases, it might be easier to just break SRP Batching support for your outline shader.
 			// Graph Properties
 			CBUFFER_START(UnityPerMaterial)
-			 float _Noise_Scale_1;
+ 		float _Noise_Scale_1;
         float _Noise_Scale_2;
         float _Noise_Power;
         float4 _HotLavaColor;
