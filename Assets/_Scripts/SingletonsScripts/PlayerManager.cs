@@ -148,8 +148,8 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         _entitieSelected = newlySelected;
         _originalScale = _entitieSelected.transform.localScale;
-        _originalMaterial = _entitieSelected.GetComponent<MeshRenderer>().material;
-        _entitieSelected.GetComponent<MeshRenderer>().material = _selectedMaterial;
+        _originalMaterial = _entitieSelected.GetComponentInChildren<MeshRenderer>().material;
+        _entitieSelected.GetComponentInChildren<MeshRenderer>().material = _selectedMaterial;
         _entitieSelected.transform.localScale = _entitieSelected.transform.localScale * 1.2f;
     
     }
@@ -157,7 +157,7 @@ public class PlayerManager : Singleton<PlayerManager>
     void UnselectObject()
     {
         _entitieSelected.transform.localScale = _originalScale;
-        _entitieSelected.GetComponent<MeshRenderer>().material = _originalMaterial;
+        _entitieSelected.GetComponentInChildren<MeshRenderer>().material = _originalMaterial;
         _entitieSelected = null;
     }
 

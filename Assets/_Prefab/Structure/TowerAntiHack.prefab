@@ -5089,7 +5089,7 @@ GameObject:
   - component: {fileID: 6696604891809939301}
   - component: {fileID: 269768967062635337}
   - component: {fileID: 7757914574313540573}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TowerAntiHack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
