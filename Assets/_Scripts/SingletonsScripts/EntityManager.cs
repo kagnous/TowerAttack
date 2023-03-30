@@ -20,7 +20,7 @@ public class EntityManager : Singleton<EntityManager>
     [Tooltip("Effet visuel lors de la destruction d'unité")]
     public GameObject destroyEffect;
 
-    private int numberWave = 1;
+    private int numberWave = 1; public int NumberWave => numberWave;
 
     [Header("Wave parameters"), Min(0)]
     [Tooltip("Intervalle de temps entre le spawn de 2 unités")]
