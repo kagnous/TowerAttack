@@ -17,13 +17,21 @@ public class StructureRuins : Entity
 
     [Tooltip("Event lancé à la construction du batiment")]
     public UnityEvent spawnStructure;
-    
-    public override void OnClick()
 
+    [Tooltip("MeshRenderers des élements à colorer à la prise de la tour")]
+    public List<MeshRenderer> ownedAreaMeshes;
+
+    [Tooltip("Material à appliquer sur les éléments de la prise de tour")]
+    public Material ownedAreaMaterial;
+
+    public override void OnClick()
     {
-        if(RessourcesManager.Instance.TryBuy(_cost))
+        if (structurePrefab && structure == null)
         {
-            BuildStructure();
+            if (RessourcesManager.Instance.TryBuy(_cost))
+            {
+                BuildStructure();
+            }
         }
     }
 
@@ -31,10 +39,15 @@ public class StructureRuins : Entity
     // Trigger pour changer la couleur des murs et build la tour le sang
     public void BuildStructure()
     {
-        if (structurePrefab && structure == null)
+        structure = Instantiate(structurePrefab, new Vector3(transform.position.x, transform.position.y + 1.2f, transform.position.z), transform.rotation);
+        spawnStructure?.Invoke();
+
+        if (ownedAreaMaterial != null)
         {
-            structure = Instantiate(structurePrefab, new Vector3(transform.position.x, transform.position.y +1.2f, transform.position.z), transform.rotation);
-            spawnStructure?.Invoke();
+            for (int i = 0; i < ownedAreaMeshes.Count; i++)
+            {
+                ownedAreaMeshes[i].material = ownedAreaMaterial;
+            }
         }
     }
 }
