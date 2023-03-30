@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,12 +16,14 @@ public class AttackActionController : ActionController
     /// <summary>
     /// Cible actuelle
     /// </summary>
-    private EntityController _currentTarget;
+    private EntityController _currentAttackTarget; public EntityController CurrentAttackTarget => _currentAttackTarget;
 
     private Dictionary<EntityType, int> _priorities;
 
     public GameObject prefabAttack;
     public Transform originAttack;
+
+    public LayerMask _maskLayer;
 
     public override void Awake()
     {
@@ -50,22 +53,23 @@ public class AttackActionController : ActionController
     public override void UpdateAction()
     {
         // S'il y a une target, on test si la target est toujours à bonne distance pour agir
-        if (_currentTarget != null)
+        /*if (_currentTarget != null)
         {
+            Debug.Log("Hello");
             if (Vector3.Distance(originAttack.position, _currentTarget.transform.position) > _attackActionData.RangeDo)
             {
                 _currentTarget = null;
             }
-        }
+        }*/
 
         // Si pas de target on cherche une nouvelle target
-        if (_currentTarget == null)
+        if (_currentAttackTarget == null)
         {
-            _currentTarget = DetectAroundEntity(_attackActionData.RangeDetect);
+            _currentAttackTarget = DetectAroundEntity(_attackActionData.RangeDetect);
         }
 
         // Si on a une target on update l'action
-        if (_currentTarget != null)
+        if (_currentAttackTarget != null)
         {
             base.UpdateAction();
         }
@@ -82,7 +86,7 @@ public class AttackActionController : ActionController
     /// <summary>
     /// Intermédiaire de DetectAroundEntity pour le MovableController
     /// </summary>
-    public GameObject DetectNewTarget()
+    /*public GameObject DetectNewTarget()
     {
         EntityController detected = DetectAroundEntity(_attackActionData.RangeDetect);
         if (detected)
@@ -90,11 +94,11 @@ public class AttackActionController : ActionController
             return detected.gameObject;
         }
         return null;
-    }
+    }*/
 
     private EntityController DetectAroundEntity(float rangeDetect)
     {
-        RaycastHit[] hits = Physics.CapsuleCastAll(originAttack.position, originAttack.position, rangeDetect, Vector3.up, 0);//, _maskLayer    <- ajouer à la fin pour test les types de cibles selon le layer
+        RaycastHit[] hits = Physics.CapsuleCastAll(originAttack.position, originAttack.position, rangeDetect, Vector3.up, 0, _maskLayer); // <- ajouer à la fin pour test les types de cibles selon le layer
 
         EntityController newTarget = null;
 
@@ -153,50 +157,54 @@ public class AttackActionController : ActionController
     protected override void DoAction()
     {
         // Si il a bien une cible (normalement c'est obligé pour arriver ici)
-        if (_currentTarget != null)
+        if (_currentAttackTarget != null)
         {
             // Si elle est a portée
-            if(Vector3.Distance(transform.position, _currentTarget.transform.position) <= _attackActionData.RangeDo)
+            if(Vector3.Distance(transform.position, _currentAttackTarget.transform.position) <= _attackActionData.RangeDo)
             {
-                transform.LookAt(_currentTarget.transform);
+                transform.LookAt(_currentAttackTarget.transform);
                 // Si il y a une munition
                 if (prefabAttack != null)
                 {
                     // On teste une ligne directe avec la cible
                     RaycastHit hit;
-                    Physics.Raycast(transform.position, _currentTarget.transform.position - transform.position, out hit);
-                    if (hit.collider.transform.TryGetComponent(out EntityController closestTarget))
+                    Physics.Raycast(transform.position, _currentAttackTarget.transform.position - transform.position, out hit);
+                    if(hit.collider != null)
                     {
-                        // On l'instancie
-                        GameObject newProjectile = Instantiate(prefabAttack);
-
-                        // On la positionne
-                        newProjectile.transform.position = originAttack.position;
-
-                        // On récupère le component Projectile
-                        Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
-
-                        // Si il existe
-                        if (projectileCompo)
+                        if (hit.collider.transform.TryGetComponent(out EntityController closestTarget))
                         {
-                            // On lui donne une cible
-                            projectileCompo.InitTarget(_currentTarget);
-                            // On lui donne ces dégâts
-                            projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
-                        }
+                            // On l'instancie
+                            GameObject newProjectile = Instantiate(prefabAttack);
+
+                            // On la positionne
+                            newProjectile.transform.position = originAttack.position;
+
+                            // On récupère le component Projectile
+                            Projectile projectileCompo = newProjectile.GetComponent<Projectile>();
+
+                            // Si il existe
+                            if (projectileCompo)
+                            {
+                                // On lui donne une cible
+                                projectileCompo.InitTarget(_currentAttackTarget);
+                                // On lui donne ces dégâts
+                                projectileCompo.damage = _attackActionData.Damage * _currentEntity.Datas.DamageModifier;
+                            }
                             //Debug.Log("FIRE !");
+                        }
+                        else
+                        {
+                            //Debug.Log(hit.collider.transform.gameObject.name);
+                        }
                     }
-                    else
-                    {
-                        //Debug.Log(hit.collider.transform.gameObject.name);
-                    }
+
 
                     
                 }
                 // Sinon juste il fait les dégâts (coup au càc notemment)
                 else
                 {
-                    _currentTarget.ApplyDamage(_attackActionData.Damage * _currentEntity.Datas.DamageModifier);
+                    _currentAttackTarget.ApplyDamage(_attackActionData.Damage * _currentEntity.Datas.DamageModifier);
                 }
 
                 //Si l'attaque a bien eu lieu, on met le cooldawn

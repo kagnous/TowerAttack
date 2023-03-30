@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,8 +16,14 @@ public class EntityMovableController : EntityController
 
     [SerializeField]
     private GameObject _currentTargetToMove;
+    private GameObject _oldCurrentTargetToMove;
 
     private List<AttackActionController> _attackActionControllers;
+
+    // Timer pour éviter les TP trop sponténées
+    private float timer1 = 0;
+    //Timer pour refresh de temps en temps le navMesh
+    private float timer2 = 0;
 
     public override void Awake()
     {
@@ -46,34 +53,63 @@ public class EntityMovableController : EntityController
 
     public override void Update()
     {
+        // Caca
+        _navMeshAgent.enabled = true;
+
         // Recuperation d'une destination
+        _oldCurrentTargetToMove = _currentTargetToMove;
         _currentTargetToMove = GetCurrentTarget();
 
-            //Debug.Log(_navMeshAgent.path.status);
-
+        //Debug.Log(_navMeshAgent.path.status);
 
         // Update de la destination
         if (_currentTargetToMove != null)
         {
-            _navMeshAgent.isStopped = false;
-            _navMeshAgent.stoppingDistance = GetMaxDistanceStop();
-            _navMeshAgent.SetDestination(_currentTargetToMove.transform.position);
+            if (_currentTargetToMove != _oldCurrentTargetToMove)
+            {
+                _navMeshAgent.isStopped = false;
+                _navMeshAgent.stoppingDistance = GetMaxDistanceStop();
+                _navMeshAgent.SetDestination(_currentTargetToMove.transform.position);
+            }
+            else
+            // Refresh occationnel du navMesh
+            {
+                timer2 += Time.deltaTime;
+                if (timer2 > 0.5f)
+                {
+                    _navMeshAgent.SetDestination(_currentTargetToMove.transform.position);
+                    timer2 = 0;
+                }
+            }
         }
         else
         {
-            _navMeshAgent.stoppingDistance = 1f;
-
-            _navMeshAgent.SetDestination(globalTarget.transform.position);
-
             // Retour instant à la base des unités alliées
             if (_faction == Faction.Player)
             {
-                transform.position = globalTarget.transform.position;
+                _navMeshAgent.stoppingDistance = 0f;
+                _navMeshAgent.isStopped = true;
 
-                if (_navMeshAgent.remainingDistance < 1)
+                timer1 += Time.deltaTime;
+                if (timer1 > 0.3f)
                 {
+                    // Caca 2
+                    _navMeshAgent.enabled = false;
+
+
+                    transform.position = globalTarget.transform.position;
+
                     Heal(Datas.Life);
+
+                    timer1 = 0;
+
                 }
+            }
+            else
+            {
+                _navMeshAgent.stoppingDistance = 1f;
+
+                _navMeshAgent.SetDestination(globalTarget.transform.position);
             }
         }
 
@@ -106,15 +142,22 @@ public class EntityMovableController : EntityController
         foreach (AttackActionController attackActionController in _attackActionControllers)
         {
             // On tente de détecter une nouvelle cible
-            GameObject newTarget = attackActionController.DetectNewTarget();
-            if (newTarget)
+            // OldVersion : GameObject newTarget = attackActionController.DetectNewTarget();
+
+            GameObject newTarget = null;
+            if (attackActionController.CurrentAttackTarget != null)
+            {
+                newTarget = attackActionController.CurrentAttackTarget.gameObject;
+            }
+
+            if (newTarget != null)
             {
                 // On crée un chemin avec la cible
-                NavMeshPath path= new NavMeshPath();
+                NavMeshPath path = new NavMeshPath();
                 _navMeshAgent.CalculatePath(newTarget.transform.position, path);
 
                 // Si ce chemin n'est pas complet
-                if(path.status != NavMeshPathStatus.PathComplete)
+                if (path.status != NavMeshPathStatus.PathComplete)
                 {
                     // On récupère le type de la target
                     EntityType type = newTarget.GetComponent<EntityController>().Datas.Type;

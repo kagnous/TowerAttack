@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 7869745266007446043}
   - component: {fileID: -1546667140137659476}
   - component: {fileID: 6575847751180459290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AIRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,6 +676,9 @@ MonoBehaviour:
   prefabAttack: {fileID: 1502496307131561895, guid: d6cf674f65bc2ab4eb8f0a5daed1ad40,
     type: 3}
   originAttack: {fileID: 7869745266007446038}
+  _maskLayer:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!114 &-1546667140137659476
 MonoBehaviour:
   m_ObjectHideFlags: 0

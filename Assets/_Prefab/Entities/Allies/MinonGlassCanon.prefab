@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 7869745266007446043}
   - component: {fileID: -1013846846820540454}
   - component: {fileID: 5909235895570345674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MinonGlassCanon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,6 +1111,9 @@ MonoBehaviour:
   prefabAttack: {fileID: 1502496307131561895, guid: f3762c6e2afac854890c96a9bd8009db,
     type: 3}
   originAttack: {fileID: 7869745266007446038}
+  _maskLayer:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!114 &-1013846846820540454
 MonoBehaviour:
   m_ObjectHideFlags: 0

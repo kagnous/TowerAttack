@@ -162,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18640013}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a0a5c62bf660434e915094f95718e66, type: 3}
   m_Name: 
@@ -872,7 +872,7 @@ MonoBehaviour:
   unit: {fileID: 7869745266007446035, guid: baa963ee365e615448b38050646bcf3f, type: 3}
   spawnPoint: {fileID: 138420842}
   cost: 40
-  colldown: 3
+  colldown: 0
 --- !u!65 &399367592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1242,6 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrapsCounter: {fileID: 618346213}
+  waveCounter: {fileID: 0}
   energySlider: {fileID: 673243958}
 --- !u!1001 &526506701
 PrefabInstance:
@@ -1378,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04006c7c7d50434ba7c28af84827d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scraps: 140
+  scraps: 2000
   _actualEnergy: 200
   _energyMax: 0
   _energyConsumed: 0
@@ -1777,7 +1778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261ac51597b5b65489324c45beec2da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsSpawn: {fileID: 0}
   unitsSpawns:
   - {fileID: 79768759}
   - {fileID: 934996964}
@@ -3436,11 +3436,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1980383700}
     m_Modifications:
-    - target: {fileID: 2615120908542430914, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
-        type: 3}
-      propertyPath: colldown
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2615120908542430915, guid: c97369e2ff8b66e4b88fcdc1c484a3f0,
         type: 3}
       propertyPath: m_RootOrder
