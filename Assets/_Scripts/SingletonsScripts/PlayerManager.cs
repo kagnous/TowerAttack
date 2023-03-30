@@ -131,12 +131,38 @@ public class PlayerManager : Singleton<PlayerManager>
         if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("Structure")))
         {
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.green);
-
-            _entitieSelected = hit.collider.gameObject;
+            if (hit.collider.gameObject!=_entitieSelected)
+            {
+                if (_entitieSelected!=null) UnselectObject();
+                SelectObject(hit.collider.gameObject);
+            }
+            
         }
         else
         {
-            _entitieSelected = null;
+            if (_entitieSelected!=null) UnselectObject();  
         }
     }
+
+    void SelectObject(GameObject newlySelected)
+    {
+        _entitieSelected = newlySelected;
+        _originalScale = _entitieSelected.transform.localScale;
+        _originalMaterial = _entitieSelected.GetComponent<MeshRenderer>().material;
+        _entitieSelected.GetComponent<MeshRenderer>().material = _selectedMaterial;
+        _entitieSelected.transform.localScale = _entitieSelected.transform.localScale * 1.2f;
+    
+    }
+
+    void UnselectObject()
+    {
+        _entitieSelected.transform.localScale = _originalScale;
+        _entitieSelected.GetComponent<MeshRenderer>().material = _originalMaterial;
+        _entitieSelected = null;
+    }
+
+    Vector3 _originalScale;
+    Material _originalMaterial;
+    [SerializeField]Material _selectedMaterial;
+
 }
