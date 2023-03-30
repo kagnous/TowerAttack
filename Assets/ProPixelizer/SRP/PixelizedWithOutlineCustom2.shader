@@ -30,15 +30,20 @@
 		[Toggle]USE_OBJECT_POSITION("Use Object Position", Float) = 1
 		[Toggle]RECEIVE_SHADOWS("ReceiveShadows", Float) = 1
 		[Toggle]PROPIXELIZER_DITHERING("Use Dithering", Float) = 1
-		_Tiling("Tiling", Vector) = (1, 1, 0, 0)
+        _Tiling("Tiling", Vector) = (1, 1, 0, 0)
         _ScrollSpeed("ScrollSpeed", Vector) = (0, 0, 0, 0)
         _ColdLavaColor("ColdLavaColor", Color) = (1, 0, 0.2055364, 0)
-        [HDR]_HotLavaColor("HotLavaColor", Color) = (0.2208682, 1, 0, 0)
+        _HotLavaColor("HotLavaColor", Color) = (0.2208682, 1, 0, 0)
         _Noise_Power("Noise Power", Int) = 9
         _Noise_Scale_2("Noise Scale 2", Float) = 37.06
         _Noise_Scale_1("Noise Scale 1", Float) = 6.23
         _PixelAmount("PixelAmount", Int) = 50
         [ToggleUI]_UseMyPixelisation("UseMyPixelisation", Float) = 0
+        [HideInInspector]_QueueOffset("_QueueOffset", Float) = 0
+        [HideInInspector]_QueueControl("_QueueControl", Float) = -1
+        [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
 	}
 
 		SubShader

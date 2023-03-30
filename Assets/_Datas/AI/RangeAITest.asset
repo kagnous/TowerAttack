@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RangeAITest
   m_EditorClassIdentifier: 
   _life: 40
-  _action: {fileID: 11400000, guid: 934345a735db9ee4fb4761b7d1dc0194, type: 2}
+  _action: {fileID: 11400000, guid: f2765fb2585c8bc4d8aa9f41663f5720, type: 2}
   _damageModifier: 1.2
   _type: 2
-  scrapsValue: 20
+  scrapsValue: 5
   energieCost: 0
   _tiers: []
-  _speed: 6
+  _speed: 10
