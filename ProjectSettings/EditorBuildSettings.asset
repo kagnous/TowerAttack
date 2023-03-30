@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scene/VS_31Mars.unity
+    path: Assets/_Scene/VS_31MarsLVL1.unity
     guid: 93510f36d4c0f79499e2221b67c79617
   m_configObjects: {}
