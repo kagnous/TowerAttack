@@ -5089,7 +5089,7 @@ GameObject:
   - component: {fileID: 6696604891809939301}
   - component: {fileID: 269768967062635337}
   - component: {fileID: 7757914574313540573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TowerAntiHack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5126,9 +5126,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b9d019f2614fb4d9a3b82e4eefa61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
+  level: 1
   _datas: {fileID: 11400000, guid: 9bc75ca2c98fd6444a95a71062788877, type: 2}
   _faction: 0
-  _canHacked: 1
+  _canHacked: 0
+  hackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []

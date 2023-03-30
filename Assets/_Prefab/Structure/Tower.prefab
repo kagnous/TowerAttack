@@ -114,10 +114,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b9d019f2614fb4d9a3b82e4eefa61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interractable: 1
   level: 1
   _datas: {fileID: 11400000, guid: 1356c0b632eba1a48a583065d7c44c1e, type: 2}
   _faction: 0
   _canHacked: 1
+  hackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destroyEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -136,6 +146,9 @@ MonoBehaviour:
   prefabAttack: {fileID: 1502496307131561895, guid: d6cf674f65bc2ab4eb8f0a5daed1ad40,
     type: 3}
   originAttack: {fileID: 2549875868096323068}
+  _maskLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &5115443333750815512
 MonoBehaviour:
   m_ObjectHideFlags: 0

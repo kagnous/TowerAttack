@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2210291915557657498}
   - component: {fileID: 2210291915557657494}
   - component: {fileID: 596469892114919280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TrainingEnnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
