@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
-  m_Shader: {fileID: 4800000, guid: ea87474e8a4be1646904d60da23a0531, type: 3}
+  m_Name: CableProgression
+  m_Shader: {fileID: 4800000, guid: c7e9755b50c15c04aaea694ffdadd60a, type: 3}
   m_ValidKeywords:
   - COLOR_GRADING_ON
   - USE_OBJECT_POSITION_ON
@@ -105,7 +105,7 @@ Material:
     - RECEIVE_SHADOWS: 0
     - USE_OBJECT_POSITION: 1
     - _AlphaClip: 0
-    - _AlphaClipThreshold: -1.66
+    - _AlphaClipThreshold: 3.06
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0

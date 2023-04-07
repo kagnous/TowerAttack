@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
-  speed: 10
+  speed: 50
   damage: 1
   rangeHit: 1
 --- !u!96 &1800676101956135153
