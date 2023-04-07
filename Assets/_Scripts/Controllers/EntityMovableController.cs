@@ -20,8 +20,6 @@ public class EntityMovableController : EntityController
 
     private List<AttackActionController> _attackActionControllers;
 
-    // Timer pour éviter les TP trop sponténées
-    private float timer1 = 0;
     //Timer pour refresh de temps en temps le navMesh
     private float timer2 = 0;
 
@@ -53,9 +51,6 @@ public class EntityMovableController : EntityController
 
     public override void Update()
     {
-        // Caca
-        _navMeshAgent.enabled = true;
-
         // Recuperation d'une destination
         _oldCurrentTargetToMove = _currentTargetToMove;
         _currentTargetToMove = GetCurrentTarget();
@@ -84,32 +79,14 @@ public class EntityMovableController : EntityController
         }
         else
         {
-            // Retour instant à la base des unités alliées
-            if (_faction == Faction.Player)
+            _navMeshAgent.stoppingDistance = 1f;
+
+            _navMeshAgent.SetDestination(globalTarget.transform.position);
+
+            // Soin des unités alliées
+            if (_faction == Faction.Player && Vector3.Distance(transform.position, globalTarget.transform.position) < 1)
             {
-                _navMeshAgent.stoppingDistance = 0f;
-                _navMeshAgent.isStopped = true;
-
-                timer1 += Time.deltaTime;
-                if (timer1 > 0.3f)
-                {
-                    // Caca 2
-                    _navMeshAgent.enabled = false;
-
-
-                    transform.position = globalTarget.transform.position;
-
-                    Heal(Datas.Life);
-
-                    timer1 = 0;
-
-                }
-            }
-            else
-            {
-                _navMeshAgent.stoppingDistance = 1f;
-
-                _navMeshAgent.SetDestination(globalTarget.transform.position);
+                Heal(Datas.Life);
             }
         }
 

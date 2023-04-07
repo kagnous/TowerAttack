@@ -5,8 +5,8 @@ using UnityEngine;
 public class EntityManager : Singleton<EntityManager>
 {
     [Header("AI Navigation")]
-    [Tooltip("Points d'apparition des ennemis")]
-    public List<Transform> unitsSpawns;
+    [Tooltip("Points d'apparition par défaut des ennemis")]
+    public List<Transform> defaultUnitsSpawns;
     [Tooltip("Destination par defaut des ennemis")]
     public GameObject globalAITarget;
 
@@ -44,15 +44,42 @@ public class EntityManager : Singleton<EntityManager>
     {
         TimeManager.Instance.tickEvent.AddListener(TickConsumeEnergy);
 
-        if (unitsSpawns.Count <= 0) { Debug.Log("AUCUN POINT DE SPAWN RENSEIGNE"); }
+        if (defaultUnitsSpawns.Count <= 0) { Debug.Log("AUCUN POINT DE SPAWN RENSEIGNE"); }
     }
 
     public IEnumerator WaveAttack(List<GameObject> army)
     {
+        bool spawnIsOverrided = false;
+        WaveData waveDataOverride = null;
+        // Si la liste des override existe à la wave en question
+        if (overridesWaves.Count >= numberWave)
+        {
+            // Si il y a une wave renseignée
+            // (le -1 c'est car numberWave commence à 1 et la liste à 0)
+            if (overridesWaves[numberWave - 1] != null)
+            {
+                // Si la wave renseignée a des points de Spawn renseignés
+                if (overridesWaves[numberWave - 1].unitsSpawns.Count > 0)
+                {
+                    Debug.Log(overridesWaves[numberWave - 1].name + " is ok");
+                    spawnIsOverrided = true;
+                    waveDataOverride = overridesWaves[numberWave - 1];
+                }
+            }
+        }
+
         for (int i = 0; i < army.Count; i++)
         {
-            Transform spawn = unitsSpawns[Random.Range(0,unitsSpawns.Count)];
-            GameObject unit = Instantiate(army[i], spawn.position, spawn.rotation);
+            Vector3 spawn = Vector3.zero;
+            if (spawnIsOverrided)
+            {
+                spawn = waveDataOverride.unitsSpawns[Random.Range(0, waveDataOverride.unitsSpawns.Count)];
+            }
+            else
+            {
+                spawn = defaultUnitsSpawns[Random.Range(0, defaultUnitsSpawns.Count)].position;
+            }
+            GameObject unit = Instantiate(army[i], spawn, Quaternion.identity);
             EntityMovableController controller = unit.GetComponent<EntityMovableController>();
             controller.Faction = Faction.IA;
             controller.globalTarget = globalAITarget;
