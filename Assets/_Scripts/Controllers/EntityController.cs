@@ -14,7 +14,7 @@ public enum Faction
 public class EntityController : Entity
 {
     [Header("Entity Properties")]
-    private float _currentLife = 0; public float CurrentLife => _currentLife;
+    protected float _currentLife = 0; public float CurrentLife => _currentLife;
 
     [SerializeField, Min(1)]
     private int level = 1;  public int Level { get { return level; } }
@@ -52,7 +52,7 @@ public class EntityController : Entity
         }
     }
 
-    public void ApplyDamage(float damage)
+    public virtual void ApplyDamage(float damage)
     {
         _currentLife -= damage;
 

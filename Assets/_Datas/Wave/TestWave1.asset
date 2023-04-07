@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01938c3832f730243a18fa019b814e58, type: 3}
   m_Name: TestWave1
   m_EditorClassIdentifier: 
+  unitsSpawns: []
   army:
   - {fileID: 4978711181820656949, guid: 97972a06971c68449a6ec6d66933ab17, type: 3}
   - {fileID: 4978711181820656949, guid: 97972a06971c68449a6ec6d66933ab17, type: 3}
