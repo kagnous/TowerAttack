@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TowerAttackTest
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.5
-  _damage: 40
+  _damage: 80
   _rangeDo: 30
   _rangeDetect: 50

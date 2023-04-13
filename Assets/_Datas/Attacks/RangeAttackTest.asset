@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RangeAttackTest
   m_EditorClassIdentifier: 
   _timeToDoAction: 0.3
-  _damage: 10
+  _damage: 13
   _rangeDo: 25
   _rangeDetect: 60
